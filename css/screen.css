@@ -234,3 +234,8 @@ span.post_topic{
   #related h2 {
     margin-bottom: 1em;
   }
+
+div#feeds {
+	text-align: right;
+	vertical-align: top;
+}
