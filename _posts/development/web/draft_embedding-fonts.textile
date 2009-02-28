@@ -23,3 +23,4 @@ We couldn't very well have our users install a package of fonts just to use our 
 Finally, I recalled that it was possible to embed a font via CSS. That's the answer we needed.
 
 First, we needed a font we had rights to distribute. Open source to the rescue: "Bitstream Vera Fonts":http://www.gnome.org/fonts/ The "Bitstream Vera Sans Mono" fits the bill. 
+
