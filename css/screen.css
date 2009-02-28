@@ -9,7 +9,7 @@ div#cse-search-results {
 
 div#search {
 	float: right;
-	top: -46px;
+	top: -54px;
 	position: relative;
 }
 /*
@@ -17,15 +17,15 @@ div#search {
 /*
 /*****************************************************************************/
 
+div#activity {
+	height: 300px;
+}
+
 /* Global Reset */
 
 * {
   margin: 0;
   padding: 0;
-}
-
-html, body {
-  height: 100%;
 }
 
 body {
