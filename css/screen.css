@@ -1,4 +1,17 @@
+/* @override http://brendanjerwin.github.com/css/screen.css */
+
 /*****************************************************************************/
+
+div#cse-search-results {
+	text-align: center;
+	width: 100%;
+}
+
+div#search {
+	float: right;
+	top: -46px;
+	position: relative;
+}
 /*
 /* Common
 /*
@@ -24,6 +37,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%;
+	color: #a00;
 }
 
 h1 {
@@ -35,7 +49,8 @@ p {
 }
 
 a {
-  color: #00a;
+  color: black;
+	font-weight: bold;
 }
 
 a:hover {
@@ -43,7 +58,7 @@ a:hover {
 }
 
 a:visited {
-  color: #a0a;
+  color: black;
 }
 
 table {
@@ -81,9 +96,9 @@ ul.posts {
 .site {
   font-size: 110%;
   text-align: justify;
-  width: 40em;
   margin: 3em auto 2em auto;
   line-height: 1.5em;
+	width: 85%;
 }
 
 .title {
@@ -93,9 +108,31 @@ ul.posts {
 }
 
   .site .title a {
-    color: #a00;
+    color: #101b37;
     text-decoration: none;
-  }
+	font-weight: bold;
+	font-size: large;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+}
+
+a.post_link {
+	text-transform: capitalize;
+}
+
+span.post_date {
+	
+}
+
+h1#post_title {
+	text-transform: capitalize;
+}
+
+#post div.js-kit-rating {
+	padding: 0;
+	margin-top: -31px;
+	margin-bottom: -19px;
+}
   
   .site .title a:hover {
     color: black;
@@ -149,7 +186,14 @@ ul.posts {
 /*****************************************************************************/
 
 #post {
-  
+	background: url(http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.png) no-repeat scroll right top;
+}
+
+span.post_topic{
+	font: small mono, Courier, "Courier New";
+	color: #aaa;
+	margin-left: 5px;
+	text-transform: lowercase;
 }
 
   /* standard */

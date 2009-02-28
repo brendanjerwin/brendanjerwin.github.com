@@ -1,0 +1,17 @@
+---
+layout: post
+title: My blog is up and running
+---
+p(meta). February 27th 2009
+
+My blog is now up and running. I'm hosting it on "GitHub":http://www.github.com as you can probably see from the URL. It's a pretty interesting system, let me count the ways:
+
+# These posts are simply text[1] files stored in my git repository. When I push changes up to GitHub, they run "Jekyll":http://github.com/mojombo/jekyll to process the source pages into the HTML you see here. See "this":http://github.com/blog/272-github-pages page to read more about it.
+# Each posting has comments and ratings provided by "JS-Kit":http://js-kit.com/.
+# My home page has a "My Activity" feed powered by "Y! Pipes":http://pipes.yahoo.com/ that collects activity feeds from various places (GitHub and Twitter right now) and aggregates them into the one list.
+
+All in all, I've got a surprising amount of interactivity on this site considering it is nothing but static HTML pages. Gotta love _Web 2.0_, huh?
+
+bq. _Update:_ I've added a Google Custom Search too. The atom feed gives Google a site map so they will be indexing my posts regularly. The search results are loaded into an @iFrame@ on my @search_results.html@ page so you get a pretty seamless experience. (If I actually had some reasonable navigation on this site you'd continue to see it even while searching.)
+
+fn1. Well, "textile":http://textile.thresholdstate.com/ actually.

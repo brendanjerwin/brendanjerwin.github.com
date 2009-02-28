@@ -1,0 +1,6 @@
+# robots.txt for http://brendanjerwin.github.com
+
+User-Agent: *
+Allow: /
+Disallow: /_layouts
+Disallow: /_posts

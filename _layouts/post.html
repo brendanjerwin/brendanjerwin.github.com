@@ -1,8 +1,12 @@
 ---
 layout: default
 ---
+
 <div id="post">
-{{ content }}
+	<h1 id="post_title">{{ page.title }} <span class="post_topic">[ {% for topic in page.topics %}{{ topic }} {% endfor %}]</span></h1>
+	<div class="js-kit-rating" title="{{ post.title }}" permalink="http://brendanjerwin.github.com{{ page.url }}" view="score"></div>
+	<script src="http://js-kit.com/ratings.js"></script>
+	{{ content }}
 </div>
 
 <div id="related">
@@ -13,3 +17,6 @@ layout: default
     {% endfor %}
   </ul>
 </div>
+
+<div class="js-kit-comments" permalink="http://brendanjerwin.github.com{{ page.url }}" backwards="yes" paginate="10" label="Comment on this entry:"></div>
+<script src="http://js-kit.com/comments.js"></script>
