@@ -3,3 +3,23 @@ layout: post
 title: Embedding Fonts in Your Pages
 ---
 p(meta). February 28th 2009
+
+We had a stupid problem at work. On our website we display insurance card 'numbers' (they are alpha-numeric) and people were complaining that they couldn't easily tell the difference between O (Oh) and 0 (zero). The answer, of course, was "get those lines to cross the zeros." It turns out that's a pretty tall order.
+
+The first approach was to try and find a crossed-zero character: "Ø" That had the problem of looking slightly off and, worse, when copied out of the page, was _*not*_ a zero! Image the havoc caused when Greek letters start showing up in data entry fields... This approach was right out.
+
+The second approach was to use the @<strike>@ element to cause the zeros to have a horizontal line through them: "-0-" This approach was better since the characters would at least copy to the clipboard as actual zeros, but, come on, it still looks cheap. 
+
+"Why can't we just use a font that differentiates zero?", I asked. I wish it was that simple.
+
+I took a quick look in the Font Book on my Mac and found, right there under the @Web@ category, the perfect font, "Andale Mono". "What luck!" Not so fast.
+
+It turns out that, in this wonderfully progressive year of 2009, our good friends at Microsoft have done us all the huge favor of no longer distributing that font. From the "wikipedia article":http://en.wikipedia.org/wiki/Andale_Mono:
+
+bq. While this typeface is no longer distributed with modern versions of Microsoft Windows (from Windows ME onwards) it is still available for download as part of the Core fonts for the Web package on Sourceforge and it is bundled with Mac OS X.
+
+We couldn't very well have our users install a package of fonts just to use our site. And it turns out that the latest versions of Windows don't come with a suitable replacement font either. 
+
+Finally, I recalled that it was possible to embed a font via CSS. That's the answer we needed.
+
+First, we needed a font we had rights to distribute. Open source to the rescue: "Bitstream Vera Fonts":http://www.gnome.org/fonts/ The "Bitstream Vera Sans Mono" fits the bill. 
