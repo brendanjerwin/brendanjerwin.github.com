@@ -2,6 +2,10 @@
 
 /*****************************************************************************/
 
+div.js-ratingWrapper {
+	height: 27px;
+}
+
 div#cse-search-results {
 	text-align: center;
 	width: 100%;
