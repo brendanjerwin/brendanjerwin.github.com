@@ -121,7 +121,9 @@ a.post_link {
 }
 
 span.post_date {
-	
+	color: #aaa;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 80%;
 }
 
 h1#post_title {
