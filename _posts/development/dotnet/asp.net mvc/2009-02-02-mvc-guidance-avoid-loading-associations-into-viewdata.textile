@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MVC Guidance: Avoid Loading Associations Into ViewData
+title: MVC Guidance - Avoid Loading Associations Into ViewData
 ---
 In reviewing some code at work I noticed a lot of cases in which the developer was reading associations from the model and loading them into ViewData. This resulted in code littered with "magic strings". Luckily there is a better approach.
 <script src="http://gist.github.com/72872.js"></script>
