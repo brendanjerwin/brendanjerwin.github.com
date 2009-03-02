@@ -1,11 +1,11 @@
 ---
 layout: default
 ---
-
 <div id="post">
 	<h1 id="post_title">{{ page.title }} <span class="post_topic">[ {% for topic in page.topics %}{{ topic }} {% endfor %}]</span></h1>
 	<div class="js-kit-rating" title="{{ post.title }}" permalink="http://brendanjerwin.github.com{{ page.url }}" view="score"></div>
 	<script src="http://js-kit.com/ratings.js"></script>
+	<p><span class="post_date">{{ page.date | date_to_string }}</span></p>
 	{{ content }}
 </div>
 

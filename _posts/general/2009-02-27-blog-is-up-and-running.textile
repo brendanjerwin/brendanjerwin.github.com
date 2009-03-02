@@ -2,8 +2,6 @@
 layout: post
 title: My blog is up and running
 ---
-p(meta). February 27th 2009
-
 My blog is now up and running. I'm hosting it on "GitHub":http://www.github.com as you can probably see from the URL. It's a pretty interesting system, let me count the ways:
 
 # These posts are simply text[1] files stored in my git repository. When I push changes up to GitHub, they run "Jekyll":http://github.com/mojombo/jekyll to process the source pages into the HTML you see here. See "this":http://github.com/blog/272-github-pages page to read more about it.

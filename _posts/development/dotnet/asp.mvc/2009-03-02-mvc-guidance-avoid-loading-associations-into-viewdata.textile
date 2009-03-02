@@ -1,0 +1,10 @@
+---
+layout: post
+title: MVC Guidance - Avoid Loading Associations Into ViewData
+---
+In reviewing some code at work I noticed a lot of cases in which the developer was reading associations from the model and loading them into ViewData. This resulted in code littered with "magic strings". Luckily there is a better approach.
+<script src="http://gist.github.com/72872.js"></script>
+
+_Where did this approach come from?_
+
+I did some looking around and discovered that the "MvcContrib documentation":http://www.codeplex.com/MVCContrib/Wiki/View.aspx?title=Grid&referringTitle=Documentation and some existing HOW-TO posts use the "magic string" approach. I suppose they were written earlier in the evolution of the ASP.NET MVC framework.

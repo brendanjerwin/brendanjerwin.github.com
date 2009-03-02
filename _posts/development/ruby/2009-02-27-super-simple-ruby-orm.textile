@@ -2,8 +2,6 @@
 layout: post
 title: Super-Simple Ruby "ORM"
 ---
-p(meta). February 27th 2009
-
 We are using Cucumber Features to document requirement stories for a project I'm working on. The project itself is written in c# but we are using Ruby to run the features in Cucumber. I needed a simple, clear method to verify some expectations against a database. I would have loved to simply use our existing NHibernate backed domain model, but IronRuby just wasn't up to the task of running Cucumber for me. Next thought was to use DataMapper or ActiveRecord but I pretty quickly dismissed that since we already have our domain models and, since our database is pretty rough to work in, the domain was fairly painful to build the first time. Why would I want to build it again especially since IronRuby will soon enough allow us to use our c# domain models?
 
 So... I decided to make a super-simple "ORM" to simplify the syntax of our expectations. All it does is wrap up a row returned from the database into a ruby object with methods for each column:
