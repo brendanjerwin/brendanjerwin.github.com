@@ -1,0 +1,24 @@
+---
+layout: post
+title: Embedding Fonts in Your Pages, dealing with Zeros
+---
+
+It used to be that when you needed to differentiate an O (oh) from a 0 (zero) in a web page you could set the font to "Andale Mono" and be done with it. Not so anymore. From the "wikipedia article":http://en.wikipedia.org/wiki/Andale_Mono:
+
+bq. While this typeface is no longer distributed with modern versions of Microsoft Windows (from Windows ME onwards) it is still available for download as part of the Core fonts for the Web package on Sourceforge and it is bundled with Mac OS X.
+
+We can't very well have our users install a package of fonts just to use our sites. And it turns out that the latest versions of Windows don't come with a suitable _replacement_ font either.
+
+Luckily there is an answer: @@font-face@, a CSS statement that lets you specify a URL to a font used in your page. The browser simply downloads the font and renders the text with it. Unluckily, it's not that simple. 
+
+The first problem is finding a font with a license that permits that sort of distribution. Open source to the rescue: "Bitstream Vera Fonts":http://www.gnome.org/fonts/. The "Bitstream Vera Sans Mono" fits the bill. 
+
+The second problem is that support for @@font-face@ varies across browsers. Current versions of Safari support it just fine for TrueType fonts, Firefox 3.1 (currently in beta) also supports downloading TrueType fonts, and Internet Explorer has supported font downloading since some time in the late 90s! (What?!!)
+
+Internet Explorer though, does not support downloading of _TrueType_ fonts. In order to embed a font in a page for Internet Explorer you need to repackage the font into an @EOT@ (@Embedable OpenType@) file. "Here":http://jontangerine.com/log/2008/10/font-face-in-ie-making-web-fonts-work is an article I found that helped me though it. You will need to "download":http://www.microsoft.com/typography/web/embedding/weft3/weft01.htm and use a _terrible_, *terrible*, application known as "WEFT" to make the @EOT@ file. I'm sorry. 
+
+If you survive making your @EOT@ file then you will need some CSS to make the magic work. Here is mine:
+
+<script src="http://gist.github.com/73141.js"></script>
+
+And "here":/test_font.html is my sample page. 
