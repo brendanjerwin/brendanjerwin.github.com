@@ -9,7 +9,7 @@ bq. While this typeface is no longer distributed with modern versions of Microso
 
 We can't very well have our users install a package of fonts just to use our sites. And it turns out that the latest versions of Windows don't come with a suitable _replacement_ font either.
 
-Luckily there is an answer: @@font-face@, a CSS statement that lets you specify a URL to a font used in your page. The browser simply downloads the font and renders the text with it. Unluckily, it's not that simple. 
+Luckily there is an answer: @@font-face@, a CSS rule that, among many other things, lets you specify a URL to a font used in your page. The browser simply downloads the font and renders the text with it. Unluckily, it's not that simple. 
 
 The first problem is finding a font with a license that permits that sort of distribution. Open source to the rescue: "Bitstream Vera Fonts":http://www.gnome.org/fonts/. The "Bitstream Vera Sans Mono" fits the bill. 
 
