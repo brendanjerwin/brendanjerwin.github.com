@@ -9,7 +9,7 @@
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="In an ASP.NET MVC2 app I&#8217;m working on I wanted to add some helpers to my views for concepts like Flash (a la Rails, not Adobe).The code in my...">
+  <meta name="description" content="I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -63,6 +63,43 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/">Rake Tasks for .NET Projects on GitHub</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-03-06T00:00:00-05:00" pubdate  data-updated="true" >Mar 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. </div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -414,45 +451,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/03/19/anonymous-generics/">C# Generics Using Anonymous Types</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-19T00:00:00-04:00" pubdate  data-updated="true" >Mar 19<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><strong><span class="caps">EDIT</span>:</strong> <em>After some discussion it was decided that the static factory class example is much clearer. So I&#8217;ve rearranged things to promote it over the static factory method in the generic type method.</em></p>
-<p>I was trying to find a better way to send multiple models to my views in an <span class="caps">ASP</span> <span class="caps">MVC</span> project and discovered a pretty neat trick. It didn&#8217;t solve my <span class="caps">MVC</span> problem but I still think it&#8217;s pretty cool.</p>
-<p>Using a technique that seems to be called <a href="http://tomasp.net/articles/cannot-return-anonymous-type-from-method.aspx">casting by example</a> and a static factory method, it is possible to instantiate a generic class using an anonymous type. The resulting instance, due to the magic of type inference, has full type safety and intellisense.</p>
-<p>The syntax for creating an instance is reminiscent of using the new &#8220;initializer&#8221; syntax: <code>var foo = MyClass.Build(new {Name="This is a Name", Count=1});</code></p>
-<p>Here is the entire thing:</p>
-<script src="http://gist.github.com/81609.js"></script><p>Another way to do this, but with messier syntax, is to simply have the factory method in the generic type itself. This requires, though, that you provide <em>some</em> type to complete the generic just to get to the factory method. The type used to complete the generic to access the factory method is actually meaningless, so I use <code>int</code> just to keep it short.</p>
-<script src="http://gist.github.com/81598.js"></script></div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -472,6 +470,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2011/09/28/upgraded-to-octopress/">Upgraded to Octopress</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2011/05/26/accessorize-js/">Announcing - accessorize.js</a>
       </li>
     
@@ -485,10 +487,6 @@
     
       <li class="post">
         <a href="/blog/2010/09/19/wiki-managed-help-command/">Wiki-Managed Help Command</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/09/09/dependency-version-leveling/">Dependency Version Leveling</a>
       </li>
     
   </ul>

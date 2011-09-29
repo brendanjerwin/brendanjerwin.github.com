@@ -4,13 +4,29 @@
   <title>Brendan Erwin</title>
   <link href="http://brendanjerwin.github.com/atom.xml" rel="self"/>
   <link href="http://brendanjerwin.github.com/"/>
-  <updated>2011-09-28T23:11:34-04:00</updated>
+  <updated>2011-09-28T23:25:23-04:00</updated>
   <id>http://brendanjerwin.github.com/</id>
   <author>
     <name>Brendan Erwin</name>
     
   </author>
 
+  
+  <entry>
+    <title>Upgraded to Octopress</title>
+    <link href="http://brendanjerwin.github.com/blog/2011/09/28/upgraded-to-octopress/"/>
+    <updated>2011-09-28T23:13:00-04:00</updated>
+    <id>http://brendanjerwin.github.com/blog/2011/09/28/upgraded-to-octopress</id>
+    <content type="html">&lt;p&gt;Wow. I just upgraded this blog to &lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; and I have to say, it&amp;#8217;s pretty amazing.&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. &lt;!&#8211;more&#8211;&gt;To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of.&lt;/p&gt;&lt;/blockquote&gt;
+
+
+&lt;p&gt;I still get to use markdown for my posts. I still get to use git to manage my content. I still get to host my site as static files on Github Pages. All the best parts about the pervious system are there, but its just so much more awesome.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m pretty happy with it. I was getting pretty embarressed with the shoddy state of my previous blog&amp;#8217;s markdown and javascript. Perhaps this is the jolt I need to get my blogging-muse singing again?&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Announcing - accessorize.js</title>
@@ -433,20 +449,6 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
 &lt;p&gt;These require that you have a &amp;#8220;Features Project&amp;#8221; setup something like this:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://brendanjerwin.github.com/images/cucumber-integration/Features_Project.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;To use these commands select either a directory or &lt;code&gt;.feature&lt;/code&gt; file and execute the &amp;#8220;Cucumber (All)&amp;#8221; command. Or, highlight a given scenario in the editor and use the &amp;#8220;Cucumber (Scenario)&amp;#8221; command.&lt;/p&gt;</content>
-  </entry>
-  
-  <entry>
-    <title>C# Generics using Anonymous Types</title>
-    <link href="http://brendanjerwin.github.com/blog/2009/03/19/anonymous-generics/"/>
-    <updated>2009-03-19T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2009/03/19/anonymous-generics</id>
-    <content type="html">&lt;p&gt;&lt;strong&gt;&lt;span class=&quot;caps&quot;&gt;EDIT&lt;/span&gt;:&lt;/strong&gt; &lt;em&gt;After some discussion it was decided that the static factory class example is much clearer. So I&amp;#8217;ve rearranged things to promote it over the static factory method in the generic type method.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I was trying to find a better way to send multiple models to my views in an &lt;span class=&quot;caps&quot;&gt;ASP&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;MVC&lt;/span&gt; project and discovered a pretty neat trick. It didn&amp;#8217;t solve my &lt;span class=&quot;caps&quot;&gt;MVC&lt;/span&gt; problem but I still think it&amp;#8217;s pretty cool.&lt;/p&gt;
-&lt;p&gt;Using a technique that seems to be called &lt;a href=&quot;http://tomasp.net/articles/cannot-return-anonymous-type-from-method.aspx&quot;&gt;casting by example&lt;/a&gt; and a static factory method, it is possible to instantiate a generic class using an anonymous type. The resulting instance, due to the magic of type inference, has full type safety and intellisense.&lt;/p&gt;
-&lt;p&gt;The syntax for creating an instance is reminiscent of using the new &amp;#8220;initializer&amp;#8221; syntax: &lt;code&gt;var foo = MyClass.Build(new {Name=&quot;This is a Name&quot;, Count=1});&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Here is the entire thing:&lt;/p&gt;
-&lt;script src=&quot;http://gist.github.com/81609.js&quot;&gt;&lt;/script&gt;&lt;p&gt;Another way to do this, but with messier syntax, is to simply have the factory method in the generic type itself. This requires, though, that you provide &lt;em&gt;some&lt;/em&gt; type to complete the generic just to get to the factory method. The type used to complete the generic to access the factory method is actually meaningless, so I use &lt;code&gt;int&lt;/code&gt; just to keep it short.&lt;/p&gt;
-&lt;script src=&quot;http://gist.github.com/81598.js&quot;&gt;&lt;/script&gt;</content>
   </entry>
   
 </feed>
