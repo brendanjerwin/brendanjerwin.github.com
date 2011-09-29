@@ -89,6 +89,9 @@
 
 <div class="entry-content"><p>Nu just got (at least in the develop branch, it&#8217;ll be released soon) a new <code>help</code> command. It works by taking in a sequence of subjects and displaying an article about them. Something like this: <code>nu help commands install</code> or <code>nu help about authors</code> or even <code>nu help commands install conflicts</code>.</p>
 
+<!--more-->
+
+
 <p>My favorite part about this system is that the content is actually maintained in the GitHub wiki for the project. The new GitHub wikis are now stored as a git repository of files, which opens up all sorts of interesting possibilities. If someone wants to update some existing documentation they simply need to edit the page in the wiki and the next release can include their modifications. If someone wants to add an entirely new subject to the documentation all they need to do is add a page and the next release will pick that up too.</p>
 
 <p>I added the wiki as a submodule of the main project in a <code>docs</code> folder. Then I modified the <code>nu.gemspec</code> to include the <code>docs</code> folder in the gem. At runtime I simply join all the command-line arguments with a dash (-), stick <code>.md</code> on the end and go look in the gem folder for the file. There is a tiny bit of post-processing to remove hyper-link markup and, eventually, to dereference cross-reference &#8216;See:&#8217; links. There is an <a href="http://github.com/nu/nu/issues#issue/19" title="Issue 19: Documentation System - 'See: subject'">issue</a> describing the cross-reference functionality.</p>

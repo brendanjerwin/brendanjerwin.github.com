@@ -4,7 +4,7 @@
   <title>Brendan Erwin</title>
   <link href="http://brendanjerwin.github.com/atom.xml" rel="self"/>
   <link href="http://brendanjerwin.github.com/"/>
-  <updated>2011-09-28T22:58:56-04:00</updated>
+  <updated>2011-09-28T23:11:34-04:00</updated>
   <id>http://brendanjerwin.github.com/</id>
   <author>
     <name>Brendan Erwin</name>
@@ -18,6 +18,9 @@
     <updated>2011-05-26T00:00:00-04:00</updated>
     <id>http://brendanjerwin.github.com/blog/2011/05/26/accessorize-js</id>
     <content type="html">&lt;p&gt;I&amp;#8217;ve been working on a new open-source project recently. It&amp;#8217;s a JavaScript library designed to convert plain-old JavaScript objects (POJOs? Isn&amp;#8217;t that one taken already?) into powerful models, full of tasty syntax and functionality.&lt;/p&gt;
+
+&lt;!&#8211;more&#8211;&gt;
+
 
 &lt;h2&gt;What does it do?&lt;/h2&gt;
 
@@ -119,6 +122,9 @@ You can also go directly to the &lt;a href=&quot;https://github.com/brendanjerwi
     <id>http://brendanjerwin.github.com/blog/2010/09/19/wiki-managed-help-command</id>
     <content type="html">&lt;p&gt;Nu just got (at least in the develop branch, it&amp;#8217;ll be released soon) a new &lt;code&gt;help&lt;/code&gt; command. It works by taking in a sequence of subjects and displaying an article about them. Something like this: &lt;code&gt;nu help commands install&lt;/code&gt; or &lt;code&gt;nu help about authors&lt;/code&gt; or even &lt;code&gt;nu help commands install conflicts&lt;/code&gt;.&lt;/p&gt;
 
+&lt;!&#8211;more&#8211;&gt;
+
+
 &lt;p&gt;My favorite part about this system is that the content is actually maintained in the GitHub wiki for the project. The new GitHub wikis are now stored as a git repository of files, which opens up all sorts of interesting possibilities. If someone wants to update some existing documentation they simply need to edit the page in the wiki and the next release can include their modifications. If someone wants to add an entirely new subject to the documentation all they need to do is add a page and the next release will pick that up too.&lt;/p&gt;
 
 &lt;p&gt;I added the wiki as a submodule of the main project in a &lt;code&gt;docs&lt;/code&gt; folder. Then I modified the &lt;code&gt;nu.gemspec&lt;/code&gt; to include the &lt;code&gt;docs&lt;/code&gt; folder in the gem. At runtime I simply join all the command-line arguments with a dash (-), stick &lt;code&gt;.md&lt;/code&gt; on the end and go look in the gem folder for the file. There is a tiny bit of post-processing to remove hyper-link markup and, eventually, to dereference cross-reference &amp;#8216;See:&amp;#8217; links. There is an &lt;a href=&quot;http://github.com/nu/nu/issues#issue/19&quot; title=&quot;Issue 19: Documentation System - &#8216;See: subject&#8217;&quot;&gt;issue&lt;/a&gt; describing the cross-reference functionality.&lt;/p&gt;
@@ -141,6 +147,9 @@ You can also go directly to the &lt;a href=&quot;https://github.com/brendanjerwi
     <updated>2010-09-09T00:00:00-04:00</updated>
     <id>http://brendanjerwin.github.com/blog/2010/09/09/dependency-version-leveling</id>
     <content type="html">&lt;p&gt;There is an open issue for Nu right now referring to &lt;a href=&quot;http://github.com/nu/nu/issues#issue/13&quot;&gt;&amp;#8220;Dependency Leveling&amp;#8221;&lt;/a&gt;. This is the idea that Nu will find the highest versioned set of dependencies that can work together for a given lib folder. There has been a bit of discussion on it, but since I&amp;#8217;m about to start writing code, I thought it would be helpful to describe my thoughts here.&lt;/p&gt;
+
+&lt;!&#8211;more&#8211;&gt;
+
 
 &lt;p&gt;Here is an example from the mailing list (slightly edited):&lt;/p&gt;
 
@@ -189,6 +198,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
     <id>http://brendanjerwin.github.com/blog/2010/09/07/nubular-gets-a-new-contributor</id>
     <content type="html">&lt;p&gt;I&amp;#8217;m now an official contributor to the &lt;a href=&quot;http://github.com/nu/nu/&quot;&gt;Nubular&lt;/a&gt; project. I&amp;#8217;ll be working on the client software just as I have been, but now I&amp;#8217;ll get to push right to the main repository.&lt;/p&gt;
 
+&lt;!&#8211;more&#8211;&gt;
+
+
 &lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/nubular_logo.jpg&quot; alt=&quot;Nubular&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I&amp;#8217;m enjoying this project a lot. It provides me with a nice outlet for my Ruby envy, gives me something to blog about that is of some interest to others, and lets me contribute back to the open source community a bit.&lt;/p&gt;
@@ -227,6 +239,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
     <id>http://brendanjerwin.github.com/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries</id>
     <content type="html">&lt;p&gt;I&amp;#8217;ve recently started hacking on a pretty cool project. Nubular, or nu, is a front-end over Ruby Gems that is intended to maintain third-party references in a .Net project&amp;#8217;s Lib folder.&lt;/p&gt;
 
+&lt;!&#8211;more&#8211;&gt;
+
+
 &lt;p&gt;It utilizes the dependency resolution system already built into Ruby Gems to resolve, download, and install all the pieces and parts needed when adding a third-party reference.&lt;/p&gt;
 
 &lt;p&gt;For example, executing &lt;code&gt;nu install fluentnhibernate&lt;/code&gt; produces a Lib folder with these packages:&lt;/p&gt;
@@ -263,6 +278,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
 
 &lt;p&gt;&lt;strong&gt;inflector_extension&lt;/strong&gt; provides a nice set of extension methods offering tons of useful inflections of various types. Strings, Ints, Decimals, etc.&lt;/p&gt;
 
+&lt;!&#8211;more&#8211;&gt;
+
+
 &lt;h2&gt;Usage&lt;/h2&gt;
 
 &lt;ol&gt;
@@ -285,7 +303,7 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
     <link href="http://brendanjerwin.github.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/"/>
     <updated>2010-03-06T00:00:00-05:00</updated>
     <id>http://brendanjerwin.github.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github</id>
-    <content type="html">&lt;p&gt;I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. I call it like: &lt;code&gt;rake release:all TAG=0.0.1&lt;/code&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. &lt;!&#8211;more&#8211;&gt;I call it like: &lt;code&gt;rake release:all TAG=0.0.1&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The tasks assume that your solution file will be named like: &lt;code&gt;github_repo_name.sln&lt;/code&gt; and at the root of the repository, that the main project will be in a subfolder with the same name as the solution, and that there is a &lt;code&gt;README.markdown&lt;/code&gt; at the root of the repository. Here is the structure from one of my projects:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/example-project-structure-for-release-rake-ta/sizes/m.png&quot; title=&quot;Example project structure for release rake tasks&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;And here is the &lt;code&gt;Rakefile&lt;/code&gt;:&lt;br /&gt;

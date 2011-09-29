@@ -92,76 +92,12 @@
 
   <div class="entry-content"><p>I&#8217;ve been working on a new open-source project recently. It&#8217;s a JavaScript library designed to convert plain-old JavaScript objects (POJOs? Isn&#8217;t that one taken already?) into powerful models, full of tasty syntax and functionality.</p>
 
-<h2>What does it do?</h2>
-
-<p><span class='has-pullquote' data-pullquote='It creates "JQuery-style" accessor methods '>
-At its most basic, accessorize.js provides accessor functions over simple JavaScript objects. It creates &#8220;JQuery-style&#8221; accessor methods which act like a Getter if no parameters are passed in, and like a Setter if a parameter value is passed in :
-</span>
-<code>obj.property()</code> - Getter mode</p>
-
-<p><code>obj.property("new value")</code> - Setter mode</p>
-
-<p>Even though JavaScript has standardized &#8216;real&#8217; properties, they are not available in any usable form in IE8 and below. Additionally, I believe the syntactic capabilities I&#8217;m able to give you offer some pretty compelling reasons to stay with the JQuery-style accessors.</p>
-
-<h3>Observable</h3>
-
-<p>Accessorized accessors are observable. There is a <code>.subscribe</code> method hanging off each one that can be used to register a function to be called whenever the property value changes:</p>
-
-<pre><code>obj.property.subscribe(function(newValue) { alert("value changed!")});
-</code></pre>
-
-<h3>Chain-able Setter Calls</h3>
-
-<p>Accessorized accessors can be set in a call chain, allowing more concise and readable initialization blocks:</p>
-
-<pre><code>obj.property("value")
-   .otherProp("other value")
-   .stillAnother("and so on")
-</code></pre>
-
-<h3>Underscore Integration</h3>
-
-<p>Accessorized accessors are integrated with <a href="http://documentcloud.github.com/underscore/">underscore.js</a> as well. If the Underscore object (simply <code>_</code>) is passed into the accessor, then it triggers a special Getter mode in which the property value is returned already wrapped in the Underscore wrapper. This enables extremely convenient access to the powerful capabilities Underscore provides.</p>
-
-<pre><code>obj.arrayProperty(_).each(function(val){ //do something here });
-</code></pre>
-
-<h3>Fancy Array Accessors</h3>
-
-<p>Accessorized array accessors are even more capable. In addition to the other features, including Underscore integration, array accessors also offer indexing variants of the standard accessor calls.</p>
-
-<p>An array accessor can be invoked with the standard Getter mode behavior, but if a number is passed in as a single argument, the array accessor will instead return the value of the array at that index. Like this:</p>
-
-<pre><code>obj.arrayProperty(["hello","world","accessorize.js","is here!"]); //set the array
-alert(obj.arrayProperty(2)); //returns "accessorize.js" to the user
-</code></pre>
-
-<p>The indexing Getter mode also works with Underscore as well:</p>
-
-<pre><code>obj.arrayProperty(1,_) //returns the Underscore wrapped value from that index
-</code></pre>
-
-<p>Finally, the standard <code>Array</code> methods are promoted to the accessor itself, allowing the accessor to be used as if it was an array in many cases. Methods that cause the contents of the array to change, like <code>.sort</code> will, of course, cause any subscribers to be notified of the change.</p>
-
-<pre><code>obj.arrayProperty.sort(); //sorts the array and notifies any subscribers of the changes
-</code></pre>
-
-<h2>What&#8217;s next?</h2>
-
-<p>The next major features I&#8217;ll be baking in are live DOM binding and integration with <a href="http://handlebars.strobeapp.com/">Handlebars.js</a>.</p>
-
-<p>The live DOM binding will leverage the observable accessors to make updates to your model&#8217;s values automatically appear in your UI.</p>
-
-<p>Handlebars integration will leverage the DOM bindings, allowing you to easily establish live bindings in your templates.</p>
-
-<h2>Where is it?</h2>
-
-<p><a href="http://accessorizejs.com">accessorizejs.com</a> is the project&#8217;s homepage.
-You can also go directly to the <a href="https://github.com/brendanjerwin/accessorizejs">github site</a>.</p>
-
-<p>It&#8217;s written in CoffeeScript, so you&#8217;ll have to get one of the compiled releases from the downloads section on GitHub. Or compile it yourself.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/05/26/accessorize-js/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -267,21 +203,12 @@ You can also go directly to the <a href="https://github.com/brendanjerwin/access
 
   <div class="entry-content"><p>Nu just got (at least in the develop branch, it&#8217;ll be released soon) a new <code>help</code> command. It works by taking in a sequence of subjects and displaying an article about them. Something like this: <code>nu help commands install</code> or <code>nu help about authors</code> or even <code>nu help commands install conflicts</code>.</p>
 
-<p>My favorite part about this system is that the content is actually maintained in the GitHub wiki for the project. The new GitHub wikis are now stored as a git repository of files, which opens up all sorts of interesting possibilities. If someone wants to update some existing documentation they simply need to edit the page in the wiki and the next release can include their modifications. If someone wants to add an entirely new subject to the documentation all they need to do is add a page and the next release will pick that up too.</p>
-
-<p>I added the wiki as a submodule of the main project in a <code>docs</code> folder. Then I modified the <code>nu.gemspec</code> to include the <code>docs</code> folder in the gem. At runtime I simply join all the command-line arguments with a dash (-), stick <code>.md</code> on the end and go look in the gem folder for the file. There is a tiny bit of post-processing to remove hyper-link markup and, eventually, to dereference cross-reference &#8216;See:&#8217; links. There is an <a href="http://github.com/nu/nu/issues#issue/19" title="Issue 19: Documentation System - 'See: subject'">issue</a> describing the cross-reference functionality.</p>
-
-<p>The end result of all this is that Nu gets a great documentation resource that is available at runtime, available online, and can be conveniently maintained by more than just the core team. Win, win, and more win.</p>
-
-<p>Here is an example of some of the documentation in the wiki:</p>
-
-<p><a href="http://emberapp.com/brendanjerwin/images/safari" title="View Image Safari"><img src="http://emberapp.com/brendanjerwin/images/safari/sizes/m.png" title="Safari" /></a></p>
-
-<p>And this is what it looks like at run-time:</p>
-
-<p><a href="http://emberapp.com/users/brendanjerwin/images/terminal-bash-8024-1" title="View Terminal — bash — 80×24"><img src="http://emberapp.com/brendanjerwin/images/terminal-bash-8024-1/sizes/l.png" alt="Terminal — bash — 80×24" /></a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2010/09/19/wiki-managed-help-command/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -315,45 +242,12 @@ You can also go directly to the <a href="https://github.com/brendanjerwin/access
 
   <div class="entry-content"><p>There is an open issue for Nu right now referring to <a href="http://github.com/nu/nu/issues#issue/13">&#8220;Dependency Leveling&#8221;</a>. This is the idea that Nu will find the highest versioned set of dependencies that can work together for a given lib folder. There has been a bit of discussion on it, but since I&#8217;m about to start writing code, I thought it would be helpful to describe my thoughts here.</p>
 
-<p>Here is an example from the mailing list (slightly edited):</p>
-
-<pre><code>nu install fluentnhibernate
-nu install castle.windsor
-
-FNH is built against NH 2.1.2 and that in turn runs against castle.core 1.1.0.0
-Windsor 2.5 then is built against castle.core 2.5 and windsor 2.1 is built against 1.2
-So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.4000
-</code></pre>
-
-<p>The Ruby Gems package contains enough information to solve this problem but Nu is going to have to recognize when these version conflicts occur and fix them automatically or offer a solution to the user.</p>
-
-<p>In this case, Fluent NHibernate and NHibernate were installed first; Fluent NHibernate will be at the most current version available and NHibernate will be at the most current version available that fits within Fluent&#8217;s constraints.</p>
-
-<p>When Castle Windsor is installed, Nu needs to detect that Castle Windsor and NHibernate have a dependency in common, and then recognize that there is a version conflict.</p>
-
-<h4>Dependency Version Overlap</h4>
-
-<p>The first attempt at resolving the conflict will be to see if a the version requirements for Castle.Core in the installed version of NHibernate and the requested version of Castle Windsor have any versions in common. If so, Nu will install that version of Castle.Core. Nu will not ask for permission to do this.</p>
-
-<h4>Newcomer Downgrade</h4>
-
-<p>That won&#8217;t work in this example though, so Nu will start attempting the same Dependency Version Overlap check on the previous version of Castle Windsor. It will continue checking older and older versions until it reaches a predefined hard-stop or finds a compatible package. In our example, Nu would find that Castle Windsor 2.0.0.0 was compatible and install it. Nu would perform this downgrade automatically, without asking the user for permission.</p>
-
-<h4>Incumbent Dependency Downgrade</h4>
-
-<p>If the conflicting package is itself a dependency of another package, like NHibernate in our example, the next approach that Nu can try is to see if, by downgrading the conflicting package, it can find a compatible set. In this case, Nu will attempt to downgrade NHibernate, within the dependency requirements of all packages which depend on it, until it finds a compatible set or runs out of available options. For each compatibility check Nu will execute the entire stack of rules, i.e. it will first look for Dependency Version Overlap, and then attempt to downgrade Castle Windsor using Newcomer Downgrade. If Nu is able to find a workable set here it will also do so automatically, since the downgrades were within the declared compatible versions of the installed package (Fluent NHibernate).</p>
-
-<h4>Root Package Downgrade</h4>
-
-<p>The final approach Nu can take is to try the same set of operations, but attempt downgrades of the packages at the root of the dependency graph. It would, in our example, attempt to downgrade Fluent NHibernate and then run through the entire set of compatibility checks. It would continue downgrading Fluent NHibernate until it found a compatible set or hit a hard-stop. If Nu were able to find a compatible set, it would display the versions to the user and ask if they wanted to rebuild their lib folder to match.</p>
-
-<p>These rules get increasingly expensive to execute, so I think a good approach would be to implement just the first two rules and see how things go. If we run into real-world situations that look like we would like to solve then we can implement the other rules one at a time.</p>
-
-<h3>Help!</h3>
-
-<p>I would <em>love</em> some thoughts on these rules. Some other examples (real or cooked up) that illustrate the edge conditions are also appreciated. This set of rules is important if Nu is going to be valuable to the .NET community. Like Daniel <a href="http://groups.google.com/group/nu-net/browse_thread/thread/481e9769a54b4292">said</a>, without it Nu &#8220;is just a glorified wget.&#8221;</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2010/09/09/dependency-version-leveling/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -387,17 +281,12 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
 
   <div class="entry-content"><p>I&#8217;m now an official contributor to the <a href="http://github.com/nu/nu/">Nubular</a> project. I&#8217;ll be working on the client software just as I have been, but now I&#8217;ll get to push right to the main repository.</p>
 
-<p><img src="http://brendanjerwin.com/images/nubular_logo.jpg" alt="Nubular" /></p>
-
-<p>I&#8217;m enjoying this project a lot. It provides me with a nice outlet for my Ruby envy, gives me something to blog about that is of some interest to others, and lets me contribute back to the open source community a bit.</p>
-
-<p>My choice of hacking focus will be influenced a lot by votes on issues, so if there is a particular feature or bug-fix that you are interested in give it an up-vote! By the way, the vote button is the tiny little triangle near the issue number.</p>
-
-<p><img src="http://s3.amazonaws.com/ember/FzoKVJJVloYg1PqjKKSLWk3ILG4Ckh0i_m.png" title="Vote Button" alt="Vote Button" /></p>
-
-<p>I&#8217;ll blog here as new functionality is added, so stay tuned.</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2010/09/07/nubular-gets-a-new-contributor/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -475,32 +364,12 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
 
   <div class="entry-content"><p>I&#8217;ve recently started hacking on a pretty cool project. Nubular, or nu, is a front-end over Ruby Gems that is intended to maintain third-party references in a .Net project&#8217;s Lib folder.</p>
 
-<p>It utilizes the dependency resolution system already built into Ruby Gems to resolve, download, and install all the pieces and parts needed when adding a third-party reference.</p>
-
-<p>For example, executing <code>nu install fluentnhibernate</code> produces a Lib folder with these packages:</p>
-
-<pre><code>The following packages are installed:
-=====================================
-    castle.core-1.1.0.0
-    castle.dynamicproxy2-2.1.0.0
-    fluentnhibernate-1.1.0.685
-    log4net-1.2.10.0
-    nhibernate-2.1.2.4000
-=====================================
-</code></pre>
-
-<p>(That output was generated with <code>nu report</code>.)</p>
-
-<p>It&#8217;s pretty amazing how quickly and easily I can go from 0 to ready to roll with all my standard OSS infrastructure downloaded and waiting for me.</p>
-
-<p>The project&#8217;s wiki is <a href="http://nu.wikispot.org/">here</a> and the mailing list (Google Groups) is <a href="http://groups.google.com/group/nu-net">here</a>. A list of currently available packages is <a href="http://nu.wikispot.org/Current%5FPackages">here</a>.</p>
-
-<p>There is also a Visual Studio Add-In being developed! It should make things wonderfully easy to manage. You can get it <a href="http://github.com/kiliman/NuForVS/downloads">here</a>.</p>
-
-<object width="660" height="525"><param name="movie" value="http://www.youtube.com/v/0-1UPrKu3wg?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x3a3a3a&amp;color2=0x999999&amp;border=1"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/0-1UPrKu3wg?fs=1&amp;hl=en_US&amp;rel=0&amp;color1=0x3a3a3a&amp;color2=0x999999&amp;border=1" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="660" height="525"></embed></object>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -536,22 +405,12 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
 
 <p><strong>inflector_extension</strong> provides a nice set of extension methods offering tons of useful inflections of various types. Strings, Ints, Decimals, etc.</p>
 
-<h2>Usage</h2>
-
-<ol>
-<li>Install it :: <a href="http://nu.wikispot.org/" title="Nubular"><code>nu install inflector_extension</code></a></li>
-<li>Reference it :: The extension classes are in the global namespace so you don&#8217;t need any <code>usings</code> before they are available.</li>
-<li>Use it :: <code>"string".InflectTo()</code> or <code>1.InflectTo()</code> or, for a real blast: <code>637849590678.InflectTo().Phrase</code></li>
-</ol>
-
-
-<p>See the <a href="http://github.com/littlebits/inflector_extension/tree/master/inflector_extension/Specs/" title="inflector_extension specs">specs</a> for example usages.</p>
-
-<hr />
-
-<p><em>In case you are wondering, that big-ass number turns into:</em> <code>"Six Hundred and Thirty Seven Billion, Eight Hundred and Forty Nine Million, Five Hundred and Ninety Thousand, Six Hundred and Seventy Eight"</code></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2010/08/29/inflector_extension_now_a_nubular_gem/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -583,12 +442,12 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   </header>
 
 
-  <div class="entry-content"><p>I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. I call it like: <code>rake release:all TAG=0.0.1</code></p>
-<p>The tasks assume that your solution file will be named like: <code>github_repo_name.sln</code> and at the root of the repository, that the main project will be in a subfolder with the same name as the solution, and that there is a <code>README.markdown</code> at the root of the repository. Here is the structure from one of my projects:</p>
-<p><img src="http://emberapp.com/brendanjerwin/images/example-project-structure-for-release-rake-ta/sizes/m.png" title="Example project structure for release rake tasks" /></p>
-<p>And here is the <code>Rakefile</code>:<br />
-<script src="http://gist.github.com/324025.js"></script></p></div>
+  <div class="entry-content"><p>I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/">Read on &rarr;</a>
+    </footer>
   
 
 
