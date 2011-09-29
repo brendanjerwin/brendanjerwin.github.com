@@ -4,7 +4,7 @@
   <title>Brendan Erwin</title>
   <link href="http://brendanjerwin.github.com/atom.xml" rel="self"/>
   <link href="http://brendanjerwin.github.com/"/>
-  <updated>2011-09-28T22:48:02-04:00</updated>
+  <updated>2011-09-28T22:55:36-04:00</updated>
   <id>http://brendanjerwin.github.com/</id>
   <author>
     <name>Brendan Erwin</name>
@@ -21,9 +21,10 @@
 
 &lt;h2&gt;What does it do?&lt;/h2&gt;
 
-&lt;p&gt;At its most basic, accessorize.js provides accessor functions over simple JavaScript objects. It creates &amp;#8220;JQuery-style&amp;#8221; accessor methods which act like a Getter if no parameters are passed in, and like a Setter if a parameter value is passed in:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;obj.property()&lt;/code&gt; - Getter mode&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#8217;has-pullquote&#8217; data-pullquote=&#8217;It creates &quot;JQuery-style&quot; accessor methods &#8216;&gt;
+At its most basic, accessorize.js provides accessor functions over simple JavaScript objects. It creates &amp;#8220;JQuery-style&amp;#8221; accessor methods which act like a Getter if no parameters are passed in, and like a Setter if a parameter value is passed in :
+&lt;/span&gt;
+&lt;code&gt;obj.property()&lt;/code&gt; - Getter mode&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;obj.property(&quot;new value&quot;)&lt;/code&gt; - Setter mode&lt;/p&gt;
 
