@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Inflector_extension is now a Nubular Gem - Brendan Erwin</title>
+  <title>Brendan Erwin</title>
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="The wiki is here and the gem is hereinflector_extension provides a nice set of extension methods offering tons of useful inflections of various typ...">
+  <meta name="description" content="I just released a little wrapper around the uNHAddins Inflector called Inflector Extension.It provides a convenient Inflect() extension method on s...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://brendanjerwin.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem/">
+  <link rel="canonical" href="http://brendanjerwin.com/blog/page/5/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -61,12 +61,15 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Inflector_extension Is Now a Nubular Gem</h1>
+      <h1 class="entry-title"><a href="/blog/2010/02/25/inflector-extension/">Inflector Extension</a></h1>
     
     
       <p class="meta">
@@ -80,79 +83,114 @@
 
 
 
-<time datetime="2010-08-29T00:00:00-04:00" pubdate  data-updated="true" >Aug 29<span>th</span>, 2010</time>
+<time datetime="2010-02-25T00:00:00-05:00" pubdate  data-updated="true" >Feb 25<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>The wiki is <a href="http://github.com/littlebits/inflector_extension/wiki" title="inflector_extension wiki">here</a> and the gem is <a href="http://rubygems.org/gems/inflector_extension" title="inflector_extension gem">here</a></p>
-
-<p><strong>inflector_extension</strong> provides a nice set of extension methods offering tons of useful inflections of various types. Strings, Ints, Decimals, etc.</p>
-
-<!--more-->
-
-
-<h2>Usage</h2>
-
-<ol>
-<li>Install it :: <a href="http://nu.wikispot.org/" title="Nubular"><code>nu install inflector_extension</code></a></li>
-<li>Reference it :: The extension classes are in the global namespace so you don&#8217;t need any <code>usings</code> before they are available.</li>
-<li>Use it :: <code>"string".InflectTo()</code> or <code>1.InflectTo()</code> or, for a real blast: <code>637849590678.InflectTo().Phrase</code></li>
-</ol>
+  <div class="entry-content"><p>I just released a little wrapper around the uNHAddins Inflector called <a href="http://github.com/brendanjerwin/inflector_extension">Inflector Extension</a>.</p>
+<p>It provides a convenient <code>Inflect()</code> extension method on <code>string</code> and <code>int</code>. The <code>int</code> variation only has the &#8220;Ordinalize&#8221; method but the <code>string</code> version has pretty much all the inflections.</p>
+<p>Have fun!</p></div>
+  
+  
 
 
-<p>See the <a href="http://github.com/littlebits/inflector_extension/tree/master/inflector_extension/Specs/" title="inflector_extension specs">specs</a> for example usages.</p>
-
-<hr />
-
-<p><em>In case you are wondering, that big-ass number turns into:</em> <code>"Six Hundred and Thirty Seven Billion, Eight Hundred and Forty Nine Million, Five Hundred and Ninety Thousand, Six Hundred and Seventy Eight"</code></p>
-</div>
-
-
-  <footer>
-    <p class="meta">
+    </article>
+  
+  
+    <article>
       
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Brendan Erwin</span></span>
-
-      
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-08-29T00:00:00-04:00" pubdate  data-updated="true" >Aug 29<span>th</span>, 2010</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/dotnet/'>dotnet</a>, <a class='category' href='/blog/categories/nugems/'>nugems</a>, <a class='category' href='/blog/categories/nuproj/'>nuproj</a>
-  
-</span>
-
-
-    </p>
+  <header>
     
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://brendanjerwin.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem/" data-via="brendanjerwin" data-counturl="http://brendanjerwin.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem/" >Tweet</a>
-  
-  
-</div>
-
+      <h1 class="entry-title"><a href="/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists/">Html.ListBoxFor - Yes, It Needs Two Lists</a></h1>
     
-  </footer>
-</article>
+    
+      <p class="meta">
+        
 
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-10T00:00:00-05:00" pubdate  data-updated="true" >Feb 10<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It took me a while to figure this out. As a matter of fact, this is the second post on the subject since the first post was <em>wrong</em>.</p>
+<p>In <span class="caps">ASP</span>.<span class="caps">NET</span> MVC2, the <code>Html.ListBoxFor()</code> method needs two parameters that seem to refer to the same data:</p>
+<p><a href="http://emberapp.com/brendanjerwin/images/listboxfor-parameters" title="View Image ListBoxFor Parameters at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/listboxfor-parameters/sizes/m.png" title="ListBoxFor Parameters" /></a><br />
+(My example is concerned with a <code>Permission</code> enumeration.)</p>
+<p>The behavior of this method just wasn&#8217;t very clear at all. It turns out that the first parameter, <code>expression</code>, is intended to reference the model property that contains a list of the selected items. In my case its an <code>IEnumerable&lt;Permission&gt;</code>. Call this parameter &#8220;selected items&#8221; instead of <code>expression</code>.</p>
+<p>The second parameter is an <code>IEnumerable&lt;SelectListItem&gt;</code> called <code>selectList</code>. It is a list of <code>SelectListItems</code> which represents all the possible values that could be selected. Call this parameter &#8220;all available items&#8221; instead of <code>selectList</code>.</p>
+<p>When <code>ListBoxFor()</code> is rendering the list html, it will mark the items as selected when the item&#8217;s <em>value</em> is found in both lists. It&#8217;s important to not use an <code>IEnumerable&lt;SelectListItem&gt;</code> on the model property.</p>
+<p>When the model binders deserialize the form on a <span class="caps">POST</span>, the model&#8217;s property will only contain entries for those values that were marked as selected.</p>
+<p>Once I figured out what the intent was I&#8217;m pretty happy with this helper, but boy those parameter names are <em>useless!</em></p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/02/09/how-i-structure-tests/">How I Structure Tests</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-09T00:00:00-05:00" pubdate  data-updated="true" >Feb 9<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This came up at work today, and it seems worth posting.</p>
+<p>The way I&#8217;ve settled on organizing my tests/specs: first, I create general category folders for major architectural chunks of my application. In this example I have <code>Domain</code> and <code>Persistance</code>.</p>
+<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion/sizes/m.png" title="VMware Fusion" /></a></p>
+<p>Inside those, if needed, I&#8217;ll add further folders to mimic the namespace of the code under test. In this case I have a fairly shallow domain (although it&#8217;ll get deaper with time and I&#8217;ll restructure the tests).</p>
+<p>Finally, for each module I&#8217;m specifying, I&#8217;ll create a folder and for each method or scenario (if the the behavior is bigger than a single method) I&#8217;ll create a fixture. Inside each fixture I&#8217;ll list the various specifications.</p>
+<p>This all results in a nice organization when running tests and makes it easy to add new specifications as needed.</p>
+<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion-1" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion-1/sizes/m.png" title="VMware Fusion" /></a></p></div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/blog/page/6/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/blog/page/4/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
 </div>
-
 <aside class="sidebar">
   
     <section>
@@ -197,7 +235,7 @@
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/brendanjerwin">@brendanjerwin</a> on Github
@@ -227,7 +265,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -244,7 +282,6 @@
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -254,6 +291,20 @@
 
 </footer>
   
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'brendanjerwin';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
   

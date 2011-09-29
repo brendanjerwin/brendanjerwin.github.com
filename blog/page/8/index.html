@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Using the NHibernate Validator with Fluent NHibernate - Brendan Erwin</title>
+  <title>Brendan Erwin</title>
   <meta name="author" content="Brendan Erwin">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://brendanjerwin.com/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/">
+  <link rel="canonical" href="http://brendanjerwin.com/blog/page/8/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -61,12 +61,15 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Using the NHibernate Validator With Fluent NHibernate</h1>
+      <h1 class="entry-title"><a href="/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/">Using the NHibernate Validator With Fluent NHibernate</a></h1>
     
     
       <p class="meta">
@@ -87,7 +90,7 @@
   </header>
 
 
-<div class="entry-content"><p>I&#8217;m using both <a href="http://fluentnhibernate.org/">Fluent NHibernate</a> and <a href="http://nhforge.org/wikis/validator10/default.aspx">NHibernate Validator</a> in a project at work and discovered that getting the two to work together was a little less than obvious. Unfortunately, <a href="http://nhforge.org/wikis/validator10/nhibernate-validator-1-0-0-documentation.aspx">documentation</a> for the NHibernate Validator seems a little thin in this area.</p>
+  <div class="entry-content"><p>I&#8217;m using both <a href="http://fluentnhibernate.org/">Fluent NHibernate</a> and <a href="http://nhforge.org/wikis/validator10/default.aspx">NHibernate Validator</a> in a project at work and discovered that getting the two to work together was a little less than obvious. Unfortunately, <a href="http://nhforge.org/wikis/validator10/nhibernate-validator-1-0-0-documentation.aspx">documentation</a> for the NHibernate Validator seems a little thin in this area.</p>
 <p>After some conversation in the <a href="http://groups.google.com/group/nhusers">nhusers</a> group with <a href="http://fabiomaulo.blogspot.com/">Fabio Maulo</a> I arrived at this:</p>
 <script src="http://gist.github.com/77853.js"></script><h3>Explanation</h3>
 <p>First, use <code>ExposeConfiguration</code> to, well, expose the NHibernate <code>Configuration</code> object.</p>
@@ -100,50 +103,103 @@
 <p>These snippets of code are from a larger <code>Configuration</code> class I use to configure and initialize NHibernate, NHibernate Validator, and StructureMap for my applications. Here&#8217;s that class, feel free to fork and update!</p>
 <script src="http://gist.github.com/77861.js"></script><p>It has a few overloads of <code>ConfigureDataAccess</code> that are used to support different database initialization needs. The default behavior is to connect to <span class="caps">MSSQL</span> Server 2005, but it can also be used for testing and other scenarios that might want a SQLite DB. Here&#8217;s how that can be done:</p>
 <script src="http://gist.github.com/77865.js"></script></div>
+  
+  
 
 
-  <footer>
-    <p class="meta">
+    </article>
+  
+  
+    <article>
       
-  
-
-<span class="byline author vcard">Posted by <span class="fn">Brendan Erwin</span></span>
-
-      
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-11T00:00:00-04:00" pubdate  data-updated="true" >Mar 11<span>th</span>, 2009</time>
-      
-
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/dotnet/'>dotnet</a>
-  
-</span>
-
-
-    </p>
+  <header>
     
-      <div class="sharing">
-  
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://brendanjerwin.com/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/" data-via="brendanjerwin" data-counturl="http://brendanjerwin.com/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/" >Tweet</a>
-  
-  
-</div>
-
+      <h1 class="entry-title"><a href="/blog/2009/03/03/embedding-fonts/">Embedding Fonts in Your Pages, Dealing With Zeros</a></h1>
     
-  </footer>
-</article>
+    
+      <p class="meta">
+        
 
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-03T00:00:00-05:00" pubdate  data-updated="true" >Mar 3<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It used to be that when you needed to differentiate an O (oh) from a 0 (zero) in a web page you could set the font to &#8220;Andale Mono&#8221; and be done with it. Not so anymore. From the <a href="http://en.wikipedia.org/wiki/Andale_Mono">wikipedia article</a>:</p>
+<blockquote>
+<p>While this typeface is no longer distributed with modern versions of Microsoft Windows (from Windows ME onwards) it is still available for download as part of the Core fonts for the Web package on Sourceforge and it is bundled with Mac OS X.</p>
+</blockquote>
+<p>We can&#8217;t very well have our users install a package of fonts just to use our sites. And it turns out that the latest versions of Windows don&#8217;t come with a suitable <em>replacement</em> font either.</p>
+<p>Luckily there is an answer: <code>@font-face</code>, a <span class="caps">CSS</span> rule that, among many other things, lets you specify a <span class="caps">URL</span> to a font used in your page. The browser simply downloads the font and renders the text with it. Unluckily, it&#8217;s not that simple.</p>
+<p>The first problem is finding a font with a license that permits that sort of distribution. Open source to the rescue: <a href="http://www.gnome.org/fonts/">Bitstream Vera Fonts</a>. The &#8220;Bitstream Vera Sans Mono&#8221; fits the bill.</p>
+<p>The second problem is that support for <code>@font-face</code> varies across browsers. Current versions of Safari support it just fine for TrueType fonts, Firefox 3.1 (currently in beta) also supports downloading TrueType fonts, and Internet Explorer has supported font downloading since some time in the late 90s! (What?!!)</p>
+<p>Internet Explorer though, does not support downloading of <em>TrueType</em> fonts. In order to embed a font in a page for Internet Explorer you need to repackage the font into an <code>EOT</code> (<code>Embedable OpenType</code>) file. <a href="http://jontangerine.com/log/2008/10/font-face-in-ie-making-web-fonts-work">Here</a> is an article I found that helped me though it. You will need to <a href="http://www.microsoft.com/typography/web/embedding/weft3/weft01.htm">download</a> and use a <em>terrible</em>, <strong>terrible</strong>, application known as &#8220;<span class="caps">WEFT</span>&#8221; to make the <code>EOT</code> file. I&#8217;m sorry.</p>
+<p>If you survive making your <code>EOT</code> file then you will need some <span class="caps">CSS</span> to make the magic work. Here is mine:</p>
+<script src="http://gist.github.com/73141.js"></script><p>And <a href="/test_font.html">here</a> is my sample page.</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/02/mvc-guidance-avoid-loading-associations-into-viewdata/">MVC Guidance - Avoid Loading Associations Into ViewData</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-02T00:00:00-05:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In reviewing some code at work I noticed a lot of cases in which the developer was reading associations from the model and loading them into ViewData. This resulted in code littered with &#8220;<a href="http://en.wikipedia.org/wiki/Magic_string_(programming)#a">magic strings</a>&#8221;. Luckily there is a better approach.<br />
+<script src="http://gist.github.com/72872.js"></script></p>
+<p><em>Where did this approach come from?</em></p>
+<p>I did some looking around and discovered that the <a href="http://www.codeplex.com/MVCContrib/Wiki/View.aspx?title=Grid&amp;referringTitle=Documentation">MvcContrib documentation</a> and some existing <span class="caps">HOW</span>-TO posts use the &#8220;magic string&#8221; approach. I suppose they were written earlier in the evolution of the <span class="caps">ASP</span>.<span class="caps">NET</span> <span class="caps">MVC</span> framework.</p></div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+        <a class="prev" href="/blog/page/9/">&larr; Older</a>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/blog/page/7/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
 </div>
-
 <aside class="sidebar">
   
     <section>
@@ -188,7 +244,7 @@
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/brendanjerwin">@brendanjerwin</a> on Github
@@ -218,7 +274,7 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -235,7 +291,6 @@
   
 </aside>
 
-
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -245,6 +300,20 @@
 
 </footer>
   
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'brendanjerwin';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
   

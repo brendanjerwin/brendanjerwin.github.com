@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title>Brendan Erwin</title>
-  <link href="http://brendanjerwin.github.com/atom.xml" rel="self"/>
-  <link href="http://brendanjerwin.github.com/"/>
-  <updated>2011-09-28T23:25:23-04:00</updated>
-  <id>http://brendanjerwin.github.com/</id>
+  <link href="http://brendanjerwin.com/atom.xml" rel="self"/>
+  <link href="http://brendanjerwin.com/"/>
+  <updated>2011-09-28T23:39:29-04:00</updated>
+  <id>http://brendanjerwin.com/</id>
   <author>
     <name>Brendan Erwin</name>
     
@@ -14,9 +14,9 @@
   
   <entry>
     <title>Upgraded to Octopress</title>
-    <link href="http://brendanjerwin.github.com/blog/2011/09/28/upgraded-to-octopress/"/>
+    <link href="http://brendanjerwin.com/blog/2011/09/28/upgraded-to-octopress/"/>
     <updated>2011-09-28T23:13:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2011/09/28/upgraded-to-octopress</id>
+    <id>http://brendanjerwin.com/blog/2011/09/28/upgraded-to-octopress</id>
     <content type="html">&lt;p&gt;Wow. I just upgraded this blog to &lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; and I have to say, it&amp;#8217;s pretty amazing.&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;Octopress is a framework designed by Brandon Mathis for Jekyll, the blog aware static site generator powering Github Pages. &lt;!&#8211;more&#8211;&gt;To start blogging with Jekyll, you have to write your own HTML templates, CSS, Javascripts and set up your configuration. But with Octopress All of that is already taken care of.&lt;/p&gt;&lt;/blockquote&gt;
@@ -30,9 +30,9 @@
   
   <entry>
     <title>Announcing - accessorize.js</title>
-    <link href="http://brendanjerwin.github.com/blog/2011/05/26/accessorize-js/"/>
+    <link href="http://brendanjerwin.com/blog/2011/05/26/accessorize-js/"/>
     <updated>2011-05-26T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2011/05/26/accessorize-js</id>
+    <id>http://brendanjerwin.com/blog/2011/05/26/accessorize-js</id>
     <content type="html">&lt;p&gt;I&amp;#8217;ve been working on a new open-source project recently. It&amp;#8217;s a JavaScript library designed to convert plain-old JavaScript objects (POJOs? Isn&amp;#8217;t that one taken already?) into powerful models, full of tasty syntax and functionality.&lt;/p&gt;
 
 &lt;!&#8211;more&#8211;&gt;
@@ -111,9 +111,9 @@ You can also go directly to the &lt;a href=&quot;https://github.com/brendanjerwi
   
   <entry>
     <title>inflector_extension is on NuGet now too</title>
-    <link href="http://brendanjerwin.github.com/blog/2011/04/05/inflector_extension-is-on-nuget/"/>
+    <link href="http://brendanjerwin.com/blog/2011/04/05/inflector_extension-is-on-nuget/"/>
     <updated>2011-04-05T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2011/04/05/inflector_extension-is-on-nuget</id>
+    <id>http://brendanjerwin.com/blog/2011/04/05/inflector_extension-is-on-nuget</id>
     <content type="html">&lt;p&gt;After getting &lt;a href=&quot;http://brendanjerwin.com/development/dotnet/littlebits/guard_claws/2011/04/04/guard_claws-is-on-nuget.html&quot;&gt;guard_claws&lt;/a&gt; on NuGet yesterday, it was fairly simple to get &lt;a href=&quot;https://github.com/littlebits/inflector_extension&quot;&gt;inflector_extension&lt;/a&gt; up there this morning as well.&lt;/p&gt;
 
 &lt;p&gt;You can see the package on the NuGet browsing site &lt;a href=&quot;http://www.nuget.org/List/Packages/inflector_extension&quot;&gt;here&lt;/a&gt;. Be sure to let me know how it goes.&lt;/p&gt;
@@ -122,9 +122,9 @@ You can also go directly to the &lt;a href=&quot;https://github.com/brendanjerwi
   
   <entry>
     <title>guard_claws is on NuGet now</title>
-    <link href="http://brendanjerwin.github.com/blog/2011/04/04/guard_claws-is-on-nuget/"/>
+    <link href="http://brendanjerwin.com/blog/2011/04/04/guard_claws-is-on-nuget/"/>
     <updated>2011-04-04T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2011/04/04/guard_claws-is-on-nuget</id>
+    <id>http://brendanjerwin.com/blog/2011/04/04/guard_claws-is-on-nuget</id>
     <content type="html">&lt;p&gt;I finally got around to updating &lt;a href=&quot;https://github.com/littlebits/guard_claws/&quot;&gt;guard_claws&lt;/a&gt;, closing a few issues, and getting it published on the clear winner in the .NET Package Management space: &lt;a href=&quot;http://www.nuget.org&quot;&gt;NuGet&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;You can see my package on the NuGet browsing site &lt;a href=&quot;http://www.nuget.org/List/Packages/guard_claws&quot;&gt;here&lt;/a&gt;. Be sure to let me know how it goes.&lt;/p&gt;
@@ -133,9 +133,9 @@ You can also go directly to the &lt;a href=&quot;https://github.com/brendanjerwi
   
   <entry>
     <title>Wiki-Managed Help Command</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/09/19/wiki-managed-help-command/"/>
+    <link href="http://brendanjerwin.com/blog/2010/09/19/wiki-managed-help-command/"/>
     <updated>2010-09-19T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/09/19/wiki-managed-help-command</id>
+    <id>http://brendanjerwin.com/blog/2010/09/19/wiki-managed-help-command</id>
     <content type="html">&lt;p&gt;Nu just got (at least in the develop branch, it&amp;#8217;ll be released soon) a new &lt;code&gt;help&lt;/code&gt; command. It works by taking in a sequence of subjects and displaying an article about them. Something like this: &lt;code&gt;nu help commands install&lt;/code&gt; or &lt;code&gt;nu help about authors&lt;/code&gt; or even &lt;code&gt;nu help commands install conflicts&lt;/code&gt;.&lt;/p&gt;
 
 &lt;!&#8211;more&#8211;&gt;
@@ -159,9 +159,9 @@ You can also go directly to the &lt;a href=&quot;https://github.com/brendanjerwi
   
   <entry>
     <title>Dependency Version Leveling</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/09/09/dependency-version-leveling/"/>
+    <link href="http://brendanjerwin.com/blog/2010/09/09/dependency-version-leveling/"/>
     <updated>2010-09-09T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/09/09/dependency-version-leveling</id>
+    <id>http://brendanjerwin.com/blog/2010/09/09/dependency-version-leveling</id>
     <content type="html">&lt;p&gt;There is an open issue for Nu right now referring to &lt;a href=&quot;http://github.com/nu/nu/issues#issue/13&quot;&gt;&amp;#8220;Dependency Leveling&amp;#8221;&lt;/a&gt;. This is the idea that Nu will find the highest versioned set of dependencies that can work together for a given lib folder. There has been a bit of discussion on it, but since I&amp;#8217;m about to start writing code, I thought it would be helpful to describe my thoughts here.&lt;/p&gt;
 
 &lt;!&#8211;more&#8211;&gt;
@@ -209,9 +209,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Nubular (nu) Project Gets a New Contributor</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/09/07/nubular-gets-a-new-contributor/"/>
+    <link href="http://brendanjerwin.com/blog/2010/09/07/nubular-gets-a-new-contributor/"/>
     <updated>2010-09-07T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/09/07/nubular-gets-a-new-contributor</id>
+    <id>http://brendanjerwin.com/blog/2010/09/07/nubular-gets-a-new-contributor</id>
     <content type="html">&lt;p&gt;I&amp;#8217;m now an official contributor to the &lt;a href=&quot;http://github.com/nu/nu/&quot;&gt;Nubular&lt;/a&gt; project. I&amp;#8217;ll be working on the client software just as I have been, but now I&amp;#8217;ll get to push right to the main repository.&lt;/p&gt;
 
 &lt;!&#8211;more&#8211;&gt;
@@ -231,9 +231,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Nubular (Nu) Command - Specification</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/09/06/nu-specification/"/>
+    <link href="http://brendanjerwin.com/blog/2010/09/06/nu-specification/"/>
     <updated>2010-09-06T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/09/06/nu-specification</id>
+    <id>http://brendanjerwin.com/blog/2010/09/06/nu-specification</id>
     <content type="html">&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; Released in v0.2.5.&lt;/p&gt;
 
 &lt;p&gt;Nubular (Nu) will be getting a new command soon: &lt;code&gt;specification&lt;/code&gt;.&lt;/p&gt;
@@ -250,9 +250,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Nubular (Nu) - Using Ruby Gems to manage .Net Libraries</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries/"/>
+    <link href="http://brendanjerwin.com/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries/"/>
     <updated>2010-08-29T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries</id>
+    <id>http://brendanjerwin.com/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries</id>
     <content type="html">&lt;p&gt;I&amp;#8217;ve recently started hacking on a pretty cool project. Nubular, or nu, is a front-end over Ruby Gems that is intended to maintain third-party references in a .Net project&amp;#8217;s Lib folder.&lt;/p&gt;
 
 &lt;!&#8211;more&#8211;&gt;
@@ -287,9 +287,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Inflector_extension is now a Nubular Gem</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem/"/>
+    <link href="http://brendanjerwin.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem/"/>
     <updated>2010-08-29T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem</id>
+    <id>http://brendanjerwin.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem</id>
     <content type="html">&lt;p&gt;The wiki is &lt;a href=&quot;http://github.com/littlebits/inflector_extension/wiki&quot; title=&quot;inflector_extension wiki&quot;&gt;here&lt;/a&gt; and the gem is &lt;a href=&quot;http://rubygems.org/gems/inflector_extension&quot; title=&quot;inflector_extension gem&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;inflector_extension&lt;/strong&gt; provides a nice set of extension methods offering tons of useful inflections of various types. Strings, Ints, Decimals, etc.&lt;/p&gt;
@@ -316,9 +316,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Rake Tasks for .NET Projects on GitHub</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/"/>
+    <link href="http://brendanjerwin.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/"/>
     <updated>2010-03-06T00:00:00-05:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github</id>
+    <id>http://brendanjerwin.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github</id>
     <content type="html">&lt;p&gt;I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. &lt;!&#8211;more&#8211;&gt;I call it like: &lt;code&gt;rake release:all TAG=0.0.1&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;The tasks assume that your solution file will be named like: &lt;code&gt;github_repo_name.sln&lt;/code&gt; and at the root of the repository, that the main project will be in a subfolder with the same name as the solution, and that there is a &lt;code&gt;README.markdown&lt;/code&gt; at the root of the repository. Here is the structure from one of my projects:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/example-project-structure-for-release-rake-ta/sizes/m.png&quot; title=&quot;Example project structure for release rake tasks&quot; /&gt;&lt;/p&gt;
@@ -328,9 +328,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>A Nice Way to Provide View Helpers for Site Infrastructure</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure/"/>
+    <link href="http://brendanjerwin.com/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure/"/>
     <updated>2010-03-06T00:00:00-05:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure</id>
+    <id>http://brendanjerwin.com/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure</id>
     <content type="html">&lt;p&gt;In an &lt;span class=&quot;caps&quot;&gt;ASP&lt;/span&gt;.&lt;span class=&quot;caps&quot;&gt;NET&lt;/span&gt; MVC2 app I&amp;#8217;m working on I wanted to add some helpers to my views for concepts like &lt;code&gt;Flash&lt;/code&gt; (a la Rails, not Adobe).&lt;/p&gt;
 &lt;p&gt;The code in my view bases was getting out of hand and had a lot of duplication so I restructured it. I thought it was kind of interesting, so here it is:&lt;/p&gt;
 &lt;p&gt;You can clone this gist with this clone &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;: &lt;code&gt;git://gist.github.com/300398.git&lt;/code&gt;&lt;br /&gt;
@@ -339,9 +339,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Inflector Extension</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/02/25/inflector-extension/"/>
+    <link href="http://brendanjerwin.com/blog/2010/02/25/inflector-extension/"/>
     <updated>2010-02-25T00:00:00-05:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/02/25/inflector-extension</id>
+    <id>http://brendanjerwin.com/blog/2010/02/25/inflector-extension</id>
     <content type="html">&lt;p&gt;I just released a little wrapper around the uNHAddins Inflector called &lt;a href=&quot;http://github.com/brendanjerwin/inflector_extension&quot;&gt;Inflector Extension&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It provides a convenient &lt;code&gt;Inflect()&lt;/code&gt; extension method on &lt;code&gt;string&lt;/code&gt; and &lt;code&gt;int&lt;/code&gt;. The &lt;code&gt;int&lt;/code&gt; variation only has the &amp;#8220;Ordinalize&amp;#8221; method but the &lt;code&gt;string&lt;/code&gt; version has pretty much all the inflections.&lt;/p&gt;
 &lt;p&gt;Have fun!&lt;/p&gt;</content>
@@ -349,9 +349,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Html.ListBoxFor - Yes, it Needs Two Lists</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists/"/>
+    <link href="http://brendanjerwin.com/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists/"/>
     <updated>2010-02-10T00:00:00-05:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists</id>
+    <id>http://brendanjerwin.com/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists</id>
     <content type="html">&lt;p&gt;It took me a while to figure this out. As a matter of fact, this is the second post on the subject since the first post was &lt;em&gt;wrong&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;In &lt;span class=&quot;caps&quot;&gt;ASP&lt;/span&gt;.&lt;span class=&quot;caps&quot;&gt;NET&lt;/span&gt; MVC2, the &lt;code&gt;Html.ListBoxFor()&lt;/code&gt; method needs two parameters that seem to refer to the same data:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://emberapp.com/brendanjerwin/images/listboxfor-parameters&quot; title=&quot;View Image ListBoxFor Parameters at Ember.com&quot;&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/listboxfor-parameters/sizes/m.png&quot; title=&quot;ListBoxFor Parameters&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
@@ -365,9 +365,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>How I Structure Tests</title>
-    <link href="http://brendanjerwin.github.com/blog/2010/02/09/how-i-structure-tests/"/>
+    <link href="http://brendanjerwin.com/blog/2010/02/09/how-i-structure-tests/"/>
     <updated>2010-02-09T00:00:00-05:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2010/02/09/how-i-structure-tests</id>
+    <id>http://brendanjerwin.com/blog/2010/02/09/how-i-structure-tests</id>
     <content type="html">&lt;p&gt;This came up at work today, and it seems worth posting.&lt;/p&gt;
 &lt;p&gt;The way I&amp;#8217;ve settled on organizing my tests/specs: first, I create general category folders for major architectural chunks of my application. In this example I have &lt;code&gt;Domain&lt;/code&gt; and &lt;code&gt;Persistance&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://emberapp.com/brendanjerwin/images/vmware-fusion&quot; title=&quot;View Image VMware Fusion at Ember.com&quot;&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/vmware-fusion/sizes/m.png&quot; title=&quot;VMware Fusion&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
@@ -379,20 +379,20 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>The Dangers of Operator Overloading</title>
-    <link href="http://brendanjerwin.github.com/blog/2009/11/16/the-dangers-of-operator-overloading/"/>
+    <link href="http://brendanjerwin.com/blog/2009/11/16/the-dangers-of-operator-overloading/"/>
     <updated>2009-11-16T00:00:00-05:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2009/11/16/the-dangers-of-operator-overloading</id>
+    <id>http://brendanjerwin.com/blog/2009/11/16/the-dangers-of-operator-overloading</id>
     <content type="html">&lt;p&gt;It lets things like this happen (one thread, not a broken debugger):&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.github.com/images/posts/operator_overloading.png&quot; title=&quot;What?&quot; alt=&quot;What?&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/posts/operator_overloading.png&quot; title=&quot;What?&quot; alt=&quot;What?&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;This might help prevent you from bending the spoon:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://msdn.microsoft.com/en-us/library/ms173147(VS.80).aspx&quot; title=&quot;C# Programming Guide&quot;&gt;Guidelines for Overloading Equals() and Operator ==&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
   
   <entry>
     <title>Consolidating My Identity</title>
-    <link href="http://brendanjerwin.github.com/blog/2009/05/16/consolidating-my-identity/"/>
+    <link href="http://brendanjerwin.com/blog/2009/05/16/consolidating-my-identity/"/>
     <updated>2009-05-16T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2009/05/16/consolidating-my-identity</id>
+    <id>http://brendanjerwin.com/blog/2009/05/16/consolidating-my-identity</id>
     <content type="html">&lt;p&gt;I like &lt;a href=&quot;http://openid.net/what/&quot;&gt;OpenID&lt;/a&gt; and have wanted to use it in my day-to-day internet usage. Up until recently I was attempting to use my &lt;code&gt;@gmail.com&lt;/code&gt; account but now I have something even better.&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;@gmail.com&lt;/code&gt; account was OK, but Google&amp;#8217;s choice of login &lt;span class=&quot;caps&quot;&gt;URI&lt;/span&gt; is weird and impossible to remember. Most OpenID services, &lt;a href=&quot;http://www.myopenid.com&quot;&gt;myOpenID&lt;/a&gt; for instance, give you a &lt;span class=&quot;caps&quot;&gt;URI&lt;/span&gt; in the pattern of &amp;#8220;username.myopenid.com&amp;#8221; to log in with. Easy to remember and, since most login forms let you forgo the &lt;code&gt;https://&lt;/code&gt; part it&amp;#8217;s pretty natural to log in.&lt;/p&gt;
 &lt;p&gt;I took it one better though, &lt;em&gt;my&lt;/em&gt; login &lt;span class=&quot;caps&quot;&gt;URI&lt;/span&gt; is &lt;code&gt;brendanjerwin.github.com&lt;/code&gt;. Now, GitHub is not an OpenID provider, but I&amp;#8217;m still able to do this via a neat feature called &amp;#8220;delegation.&amp;#8221;&lt;/p&gt;
@@ -402,9 +402,9 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>This could be my new favorite thing</title>
-    <link href="http://brendanjerwin.github.com/blog/2009/05/15/this-could-be-my-new-favorite-thing/"/>
+    <link href="http://brendanjerwin.com/blog/2009/05/15/this-could-be-my-new-favorite-thing/"/>
     <updated>2009-05-15T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2009/05/15/this-could-be-my-new-favorite-thing</id>
+    <id>http://brendanjerwin.com/blog/2009/05/15/this-could-be-my-new-favorite-thing</id>
     <content type="html">&lt;p&gt;I was just watching &lt;a href=&quot;http://twitter.com/robconery&quot;&gt;Rob Conery&amp;#8217;s&lt;/a&gt; &lt;a href=&quot;http://blog.wekeroad.com/mvc-storefront/kona-3/&quot;&gt;screencast&lt;/a&gt; on &lt;span class=&quot;caps&quot;&gt;BDD&lt;/span&gt; and he showed me a tool that I think might just be my new favorite thing: &lt;a href=&quot;http://github.com/machine/machine.specifications/tree/master&quot;&gt;MSpec/machine.specifications&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;It&amp;#8217;s a really cool new &lt;span class=&quot;caps&quot;&gt;BDD&lt;/span&gt; style executable specification framework which is heavily inspired by RSpec and uses some really neat c# syntax tricks. Not only does it offer a great specification &lt;span class=&quot;caps&quot;&gt;DSL&lt;/span&gt; in code, but it, like RSpec, outputs a document that &lt;em&gt;is&lt;/em&gt; the specifications document.&lt;/p&gt;
 &lt;p&gt;Here is a sample snagged out of one of the example projects:&lt;/p&gt;
@@ -422,32 +422,32 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
   
   <entry>
     <title>Campfire, Now Included</title>
-    <link href="http://brendanjerwin.github.com/blog/2009/04/30/campfire-now/"/>
+    <link href="http://brendanjerwin.com/blog/2009/04/30/campfire-now/"/>
     <updated>2009-04-30T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2009/04/30/campfire-now</id>
+    <id>http://brendanjerwin.com/blog/2009/04/30/campfire-now</id>
     <content type="html">&lt;p&gt;Just a little post to mention that I&amp;#8217;ve added a &lt;a href=&quot;http://www.campfirenow.com/&quot;&gt;Campfire&lt;/a&gt; chat room to my site. Now you can drop in for a quick conversation to ask questions about the drivel I post! It&amp;#8217;s down at the bottom of each page, along with the subscription buttons:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#8217;http://www.quicksnapper.com/brendanjerwin/image/campfire-now-included-0000&#8217; alt=&#8217;View the image at QuickSnapper.com&#8217;&gt;&lt;img src=&#8217;http://www.quicksnapper.com/files/8929/66203606749FA04B8925BA_m.png&#8217; title=&#8217;Hosted by QuickSnapper.com&#8217; /&gt;&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
   
   <entry>
     <title>Quick &amp; Easy Cucumber Integration in Visual Studio</title>
-    <link href="http://brendanjerwin.github.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio/"/>
+    <link href="http://brendanjerwin.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio/"/>
     <updated>2009-04-07T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.github.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio</id>
+    <id>http://brendanjerwin.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio</id>
     <content type="html">&lt;p&gt;&lt;em&gt;&lt;span class=&quot;caps&quot;&gt;UPDATED&lt;/span&gt;: A coworker did this much better. Look here: &lt;a href=&quot;http://ckooken.blogspot.com/2009/08/cucumber-debugging-in-visual-studio.html&quot;&gt;Cucumber Debugging in Visual Studio with Ruby in Steel&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
 &lt;em&gt;Edit (4/21/2009): Updated the &amp;#8220;Scenario&amp;#8221; mode to use line number instead of selected text.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;First, if you haven&amp;#8217;t heard of &lt;a href=&quot;http://cukes.info&quot;&gt;Cucumber&lt;/a&gt; then go read about it.&lt;/p&gt;
 &lt;p&gt;Done? Good. Now I&amp;#8217;m gonna show you a quick a easy way to integrate it into your Visual Studio:&lt;/p&gt;
 &lt;p&gt;Add two External Tools configured like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.github.com/images/cucumber-integration/All.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.github.com/images/cucumber-integration/Scenario.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/All.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/Scenario.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;To help you out a bit, here are the &amp;#8220;Arguments&amp;#8221; entries:&lt;/p&gt;
 &lt;ul&gt;
 	&lt;li&gt;&lt;strong&gt;All:&lt;/strong&gt; &lt;code&gt;&#8211;guess -r $(ProjectDir)\features $(ItemPath)&lt;/code&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;strong&gt;Scenario:&lt;/strong&gt; &lt;code&gt;&#8211;guess -r $(ProjectDir)\features $(ItemPath):$(CurLine)&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;These require that you have a &amp;#8220;Features Project&amp;#8221; setup something like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.github.com/images/cucumber-integration/Features_Project.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/Features_Project.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;To use these commands select either a directory or &lt;code&gt;.feature&lt;/code&gt; file and execute the &amp;#8220;Cucumber (All)&amp;#8221; command. Or, highlight a given scenario in the editor and use the &amp;#8220;Cucumber (Scenario)&amp;#8221; command.&lt;/p&gt;</content>
   </entry>
   

@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: development,ruby - Brendan Erwin</title>
+  <title>Brendan Erwin</title>
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="Category: development,ruby">
+  <meta name="description" content="We are using Cucumber Features to document requirement stories for a project I&#8217;m working on. The project itself is written in c# but we are u...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://brendanjerwin.github.comblog/categories/development-ruby/">
+  <link rel="canonical" href="http://brendanjerwin.com/blog/page/9/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -48,7 +48,7 @@
 </ul>
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:brendanjerwin.github.com" />
+    <input type="hidden" name="q" value="site:brendanjerwin.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -61,40 +61,101 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
-    <h1 class="entry-title">Category: Development,ruby</h1>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/27/super-simple-ruby-orm/">Super-Simple Ruby &#8220;ORM&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-27T00:00:00-05:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+  <div class="entry-content"><p>We are using Cucumber Features to document requirement stories for a project I&#8217;m working on. The project itself is written in c# but we are using Ruby to run the features in Cucumber. I needed a simple, clear method to verify some expectations against a database. I would have loved to simply use our existing NHibernate backed domain model, but IronRuby just wasn&#8217;t up to the task of running Cucumber for me. Next thought was to use DataMapper or ActiveRecord but I pretty quickly dismissed that since we already have our domain models and, since our database is pretty rough to work in, the domain was fairly painful to build the first time. Why would I want to build it again especially since IronRuby will soon enough allow us to use our c# domain models?</p>
 
-  
-  <h2>2009</h2>
+<p>So&#8230; I decided to make a super-simple &#8220;ORM&#8221; to simplify the syntax of our expectations. All it does is wrap up a row returned from the database into a ruby object with methods for each column:</p>
 
-<article>
-  
-<h1><a href="/blog/2009/02/27/super-simple-ruby-orm/">Super-Simple Ruby "ORM"</a></h1>
-<time datetime="2009-02-27T00:00:00-05:00" pubdate><span class='month'>Feb</span> <span class='day'>27</span> <span class='year'>2009</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/development-ruby/'>development,ruby</a></span>
-</footer>
-
-
-</article>
+<script src="http://gist.github.com/71472.js"></script>
 
 </div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/27/blog-is-up-and-running/">My Blog Is Up and Running</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
 
   
-</article>
 
+
+
+<time datetime="2009-02-27T00:00:00-05:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My blog is now up and running. I&#8217;m hosting it on <a href="http://www.github.com">GitHub</a> as you can probably see from the <span class="caps">URL</span>. It&#8217;s a pretty interesting system, let me count the ways:</p>
+<ol>
+	<li>These posts are simply text<sup class="footnote" id="fnr1"><a href="#fn1">1</a></sup> files stored in my git repository. When I push changes up to GitHub, they run <a href="http://github.com/mojombo/jekyll">Jekyll</a> to process the source pages into the <span class="caps">HTML</span> you see here. See <a href="http://github.com/blog/272-github-pages">this</a> page to read more about it.</li>
+	<li>Each posting has comments and ratings provided by <a href="http://js-kit.com/">JS-Kit</a>.</li>
+	<li>My home page has a &#8220;My Activity&#8221; feed powered by <a href="http://pipes.yahoo.com/">Y! Pipes</a> that collects activity feeds from various places (GitHub and Twitter right now) and aggregates them into the one list.</li>
+</ol>
+<p>All in all, I&#8217;ve got a surprising amount of interactivity on this site considering it is nothing but static <span class="caps">HTML</span> pages. Gotta love <em>Web 2.0</em>, huh?</p>
+<blockquote>
+<p><em>Update:</em> I&#8217;ve added a Google Custom Search too. The atom feed gives Google a site map so they will be indexing my posts regularly. The search results are loaded into an <code>iFrame</code> on my <code>search_results.html</code> page so you get a pretty seamless experience. (If I actually had some reasonable navigation on this site you&#8217;d continue to see it even while searching.)</p>
+</blockquote>
+<p class="footnote" id="fn1"><a href="#fnr1"><sup>1</sup></a> Well, <a href="http://textile.thresholdstate.com/">textile</a> actually.</p></div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/blog/page/8/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
 </div>
-
 <aside class="sidebar">
   
     <section>
@@ -121,13 +182,25 @@
         <a href="/blog/2010/09/19/wiki-managed-help-command/">Wiki-Managed Help Command</a>
       </li>
     
+      <li class="post">
+        <a href="/blog/2010/09/09/dependency-version-leveling/">Dependency Version Leveling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/07/nubular-gets-a-new-contributor/">Nubular (nu) Project Gets a New Contributor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/06/nu-specification/">Nubular (Nu) Command - Specification</a>
+      </li>
+    
   </ul>
 </section>
 
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/brendanjerwin">@brendanjerwin</a> on Github
@@ -157,11 +230,11 @@
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
-      getTwitterFeed("brendanjerwin", 4, false);
+      getTwitterFeed("brendanjerwin", 8, false);
     });
   </script>
   <script src="/javascripts/twitter.js" type="text/javascript"> </script>
@@ -173,7 +246,6 @@
 
   
 </aside>
-
 
     </div>
   </div>

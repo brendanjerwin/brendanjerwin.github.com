@@ -9,7 +9,7 @@
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. ">
+  <meta name="description" content="I finally got around to updating guard_claws, closing a few issues, and getting it published on the clear winner in the .NET Package Management spa...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://brendanjerwin.github.com/blog/page/2/">
+  <link rel="canonical" href="http://brendanjerwin.com/blog/page/2/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -48,7 +48,7 @@
 </ul>
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:brendanjerwin.github.com" />
+    <input type="hidden" name="q" value="site:brendanjerwin.com" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -69,7 +69,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/">Rake Tasks for .NET Projects on GitHub</a></h1>
+      <h1 class="entry-title"><a href="/blog/2011/04/04/guard_claws-is-on-nuget/">Guard_claws Is on NuGet Now</a></h1>
     
     
       <p class="meta">
@@ -83,18 +83,56 @@
 
 
 
-<time datetime="2010-03-06T00:00:00-05:00" pubdate  data-updated="true" >Mar 6<span>th</span>, 2010</time>
+<time datetime="2011-04-04T00:00:00-04:00" pubdate  data-updated="true" >Apr 4<span>th</span>, 2011</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. </div>
+  <div class="entry-content"><p>I finally got around to updating <a href="https://github.com/littlebits/guard_claws/">guard_claws</a>, closing a few issues, and getting it published on the clear winner in the .NET Package Management space: <a href="http://www.nuget.org">NuGet</a></p>
+
+<p>You can see my package on the NuGet browsing site <a href="http://www.nuget.org/List/Packages/guard_claws">here</a>. Be sure to let me know how it goes.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/09/19/wiki-managed-help-command/">Wiki-Managed Help Command</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-09-19T00:00:00-04:00" pubdate  data-updated="true" >Sep 19<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Nu just got (at least in the develop branch, it&#8217;ll be released soon) a new <code>help</code> command. It works by taking in a sequence of subjects and displaying an article about them. Something like this: <code>nu help commands install</code> or <code>nu help about authors</code> or even <code>nu help commands install conflicts</code>.</p>
+
+</div>
   
   
     <footer>
-      <a rel="full-article" href="/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/">Read on &rarr;</a>
+      <a rel="full-article" href="/blog/2010/09/19/wiki-managed-help-command/">More &rarr;</a>
     </footer>
   
 
@@ -106,7 +144,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure/">A Nice Way to Provide View Helpers for Site Infrastructure</a></h1>
+      <h1 class="entry-title"><a href="/blog/2010/09/09/dependency-version-leveling/">Dependency Version Leveling</a></h1>
     
     
       <p class="meta">
@@ -120,332 +158,21 @@
 
 
 
-<time datetime="2010-03-06T00:00:00-05:00" pubdate  data-updated="true" >Mar 6<span>th</span>, 2010</time>
+<time datetime="2010-09-09T00:00:00-04:00" pubdate  data-updated="true" >Sep 9<span>th</span>, 2010</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>In an <span class="caps">ASP</span>.<span class="caps">NET</span> MVC2 app I&#8217;m working on I wanted to add some helpers to my views for concepts like <code>Flash</code> (a la Rails, not Adobe).</p>
-<p>The code in my view bases was getting out of hand and had a lot of duplication so I restructured it. I thought it was kind of interesting, so here it is:</p>
-<p>You can clone this gist with this clone <span class="caps">URL</span>: <code>git://gist.github.com/300398.git</code><br />
-<script src="http://gist.github.com/300398.js"></script></p></div>
+  <div class="entry-content"><p>There is an open issue for Nu right now referring to <a href="http://github.com/nu/nu/issues#issue/13">&#8220;Dependency Leveling&#8221;</a>. This is the idea that Nu will find the highest versioned set of dependencies that can work together for a given lib folder. There has been a bit of discussion on it, but since I&#8217;m about to start writing code, I thought it would be helpful to describe my thoughts here.</p>
+
+</div>
   
   
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/02/25/inflector-extension/">Inflector Extension</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-25T00:00:00-05:00" pubdate  data-updated="true" >Feb 25<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I just released a little wrapper around the uNHAddins Inflector called <a href="http://github.com/brendanjerwin/inflector_extension">Inflector Extension</a>.</p>
-<p>It provides a convenient <code>Inflect()</code> extension method on <code>string</code> and <code>int</code>. The <code>int</code> variation only has the &#8220;Ordinalize&#8221; method but the <code>string</code> version has pretty much all the inflections.</p>
-<p>Have fun!</p></div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists/">Html.ListBoxFor - Yes, It Needs Two Lists</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-10T00:00:00-05:00" pubdate  data-updated="true" >Feb 10<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It took me a while to figure this out. As a matter of fact, this is the second post on the subject since the first post was <em>wrong</em>.</p>
-<p>In <span class="caps">ASP</span>.<span class="caps">NET</span> MVC2, the <code>Html.ListBoxFor()</code> method needs two parameters that seem to refer to the same data:</p>
-<p><a href="http://emberapp.com/brendanjerwin/images/listboxfor-parameters" title="View Image ListBoxFor Parameters at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/listboxfor-parameters/sizes/m.png" title="ListBoxFor Parameters" /></a><br />
-(My example is concerned with a <code>Permission</code> enumeration.)</p>
-<p>The behavior of this method just wasn&#8217;t very clear at all. It turns out that the first parameter, <code>expression</code>, is intended to reference the model property that contains a list of the selected items. In my case its an <code>IEnumerable&lt;Permission&gt;</code>. Call this parameter &#8220;selected items&#8221; instead of <code>expression</code>.</p>
-<p>The second parameter is an <code>IEnumerable&lt;SelectListItem&gt;</code> called <code>selectList</code>. It is a list of <code>SelectListItems</code> which represents all the possible values that could be selected. Call this parameter &#8220;all available items&#8221; instead of <code>selectList</code>.</p>
-<p>When <code>ListBoxFor()</code> is rendering the list html, it will mark the items as selected when the item&#8217;s <em>value</em> is found in both lists. It&#8217;s important to not use an <code>IEnumerable&lt;SelectListItem&gt;</code> on the model property.</p>
-<p>When the model binders deserialize the form on a <span class="caps">POST</span>, the model&#8217;s property will only contain entries for those values that were marked as selected.</p>
-<p>Once I figured out what the intent was I&#8217;m pretty happy with this helper, but boy those parameter names are <em>useless!</em></p></div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/02/09/how-i-structure-tests/">How I Structure Tests</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-09T00:00:00-05:00" pubdate  data-updated="true" >Feb 9<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This came up at work today, and it seems worth posting.</p>
-<p>The way I&#8217;ve settled on organizing my tests/specs: first, I create general category folders for major architectural chunks of my application. In this example I have <code>Domain</code> and <code>Persistance</code>.</p>
-<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion/sizes/m.png" title="VMware Fusion" /></a></p>
-<p>Inside those, if needed, I&#8217;ll add further folders to mimic the namespace of the code under test. In this case I have a fairly shallow domain (although it&#8217;ll get deaper with time and I&#8217;ll restructure the tests).</p>
-<p>Finally, for each module I&#8217;m specifying, I&#8217;ll create a folder and for each method or scenario (if the the behavior is bigger than a single method) I&#8217;ll create a fixture. Inside each fixture I&#8217;ll list the various specifications.</p>
-<p>This all results in a nice organization when running tests and makes it easy to add new specifications as needed.</p>
-<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion-1" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion-1/sizes/m.png" title="VMware Fusion" /></a></p></div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/11/16/the-dangers-of-operator-overloading/">The Dangers of Operator Overloading</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-11-16T00:00:00-05:00" pubdate  data-updated="true" >Nov 16<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>It lets things like this happen (one thread, not a broken debugger):</p>
-<p><img src="/images/posts/operator_overloading.png" title="What?" alt="What?" /></p>
-<p>This might help prevent you from bending the spoon:</p>
-<p><a href="http://msdn.microsoft.com/en-us/library/ms173147(VS.80).aspx" title="C# Programming Guide">Guidelines for Overloading Equals() and Operator ==</a></p></div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/16/consolidating-my-identity/">Consolidating My Identity</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-05-16T00:00:00-04:00" pubdate  data-updated="true" >May 16<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I like <a href="http://openid.net/what/">OpenID</a> and have wanted to use it in my day-to-day internet usage. Up until recently I was attempting to use my <code>@gmail.com</code> account but now I have something even better.</p>
-<p>The <code>@gmail.com</code> account was OK, but Google&#8217;s choice of login <span class="caps">URI</span> is weird and impossible to remember. Most OpenID services, <a href="http://www.myopenid.com">myOpenID</a> for instance, give you a <span class="caps">URI</span> in the pattern of &#8220;username.myopenid.com&#8221; to log in with. Easy to remember and, since most login forms let you forgo the <code>https://</code> part it&#8217;s pretty natural to log in.</p>
-<p>I took it one better though, <em>my</em> login <span class="caps">URI</span> is <code>brendanjerwin.github.com</code>. Now, GitHub is not an OpenID provider, but I&#8217;m still able to do this via a neat feature called &#8220;delegation.&#8221;</p>
-<p>Read this: <a href="http://www.intertwingly.net/blog/2007/01/03/OpenID-for-non-SuperUsers">OpenID for non-SuperUsers</a>. I followed the instructions under &#8220;Claim Your Blog&#8221; and added this to my <code>default.html</code> template:</p>
-<script src="http://gist.github.com/112846.js"></script><em>Note:</em> You do need an account at a real OpenID provider for this to work since it is simply delegation. I use <a href="http://www.myopenid.com">myOpenID</a> as you have probably surmised&#8230;</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/15/this-could-be-my-new-favorite-thing/">This Could Be My New Favorite Thing</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-05-15T00:00:00-04:00" pubdate  data-updated="true" >May 15<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was just watching <a href="http://twitter.com/robconery">Rob Conery&#8217;s</a> <a href="http://blog.wekeroad.com/mvc-storefront/kona-3/">screencast</a> on <span class="caps">BDD</span> and he showed me a tool that I think might just be my new favorite thing: <a href="http://github.com/machine/machine.specifications/tree/master">MSpec/machine.specifications</a>.</p>
-<p>It&#8217;s a really cool new <span class="caps">BDD</span> style executable specification framework which is heavily inspired by RSpec and uses some really neat c# syntax tricks. Not only does it offer a great specification <span class="caps">DSL</span> in code, but it, like RSpec, outputs a document that <em>is</em> the specifications document.</p>
-<p>Here is a sample snagged out of one of the example projects:</p>
-<script src="http://gist.github.com/112567.js"></script><p>In addition, it has integration with all sorts of great tools. Resharper for instance: it provides a test runner plugin for Resharper 4.1 and 4.5. Here&#8217;s a quick screenshot:</p>
-<p><a href='http://www.quicksnapper.com/brendanjerwin/image/untitled' alt='View the image at QuickSnapper.com'><img src='http://www.quicksnapper.com/files/8929/9437621074A0E3F4962241_m.png' title='Hosted by QuickSnapper.com' /></a></p>
-<p>And here it is in the code editor window:</p>
-<p><a href='http://www.quicksnapper.com/brendanjerwin/image/untitled-0000' alt='View the image at QuickSnapper.com'><img src='http://www.quicksnapper.com/files/8929/378109014A0E3FAF36ADD_m.png' title='Hosted by QuickSnapper.com' /></a></p>
-<p>It also provides integration with TeamCity, outputting the specifications documentation, with current pass/fail/not-implemented results right there in the specifications.</p>
-<p>Go check it out! Watch the screencast and gaze in wonderment!</p>
-<hr />
-<p>Helpful links:</p>
-- <a href="http://codebetter.com/blogs/aaron.jensen/archive/2008/10/19/getting-resharper-and-vs-to-play-nice-with-mspec.aspx">Getting Resharper to play nice with the crazy syntax tricks.</a>
-- <a href="http://github.com/machine/machine.specifications/tree/0db4d72c93fdc4f5775d9b1eb6239b64a76ad562/Source">The Machine.Specifications project site on GitHub</a></div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/04/30/campfire-now/">Campfire, Now Included</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-04-30T00:00:00-04:00" pubdate  data-updated="true" >Apr 30<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Just a little post to mention that I&#8217;ve added a <a href="http://www.campfirenow.com/">Campfire</a> chat room to my site. Now you can drop in for a quick conversation to ask questions about the drivel I post! It&#8217;s down at the bottom of each page, along with the subscription buttons:</p>
-<p><a href='http://www.quicksnapper.com/brendanjerwin/image/campfire-now-included-0000' alt='View the image at QuickSnapper.com'><img src='http://www.quicksnapper.com/files/8929/66203606749FA04B8925BA_m.png' title='Hosted by QuickSnapper.com' /></a></p></div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio/">Quick &amp; Easy Cucumber Integration in Visual Studio</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-04-07T00:00:00-04:00" pubdate  data-updated="true" >Apr 7<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em><span class="caps">UPDATED</span>: A coworker did this much better. Look here: <a href="http://ckooken.blogspot.com/2009/08/cucumber-debugging-in-visual-studio.html">Cucumber Debugging in Visual Studio with Ruby in Steel</a></em><br />
-<em>Edit (4/21/2009): Updated the &#8220;Scenario&#8221; mode to use line number instead of selected text.</em></p>
-<p>First, if you haven&#8217;t heard of <a href="http://cukes.info">Cucumber</a> then go read about it.</p>
-<p>Done? Good. Now I&#8217;m gonna show you a quick a easy way to integrate it into your Visual Studio:</p>
-<p>Add two External Tools configured like this:</p>
-<p><img src="/images/cucumber-integration/All.png" title="Title" alt="Title" /></p>
-<p><img src="/images/cucumber-integration/Scenario.png" title="Title" alt="Title" /></p>
-<p>To help you out a bit, here are the &#8220;Arguments&#8221; entries:</p>
-<ul>
-	<li><strong>All:</strong> <code>--guess -r $(ProjectDir)\features $(ItemPath)</code></li>
-	<li><strong>Scenario:</strong> <code>--guess -r $(ProjectDir)\features $(ItemPath):$(CurLine)</code></li>
-</ul>
-<p>These require that you have a &#8220;Features Project&#8221; setup something like this:</p>
-<p><img src="/images/cucumber-integration/Features_Project.png" title="Title" alt="Title" /></p>
-<p>To use these commands select either a directory or <code>.feature</code> file and execute the &#8220;Cucumber (All)&#8221; command. Or, highlight a given scenario in the editor and use the &#8220;Cucumber (Scenario)&#8221; command.</p></div>
-  
+    <footer>
+      <a rel="full-article" href="/blog/2010/09/09/dependency-version-leveling/">More &rarr;</a>
+    </footer>
   
 
 
@@ -489,6 +216,18 @@
         <a href="/blog/2010/09/19/wiki-managed-help-command/">Wiki-Managed Help Command</a>
       </li>
     
+      <li class="post">
+        <a href="/blog/2010/09/09/dependency-version-leveling/">Dependency Version Leveling</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/07/nubular-gets-a-new-contributor/">Nubular (nu) Project Gets a New Contributor</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/06/nu-specification/">Nubular (Nu) Command - Specification</a>
+      </li>
+    
   </ul>
 </section>
 
@@ -529,7 +268,7 @@
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
-      getTwitterFeed("brendanjerwin", 4, false);
+      getTwitterFeed("brendanjerwin", 8, false);
     });
   </script>
   <script src="/javascripts/twitter.js" type="text/javascript"> </script>
