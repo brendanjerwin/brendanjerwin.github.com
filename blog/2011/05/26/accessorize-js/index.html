@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Announcing - accessorize.js - Brendan Erwin</title>
+  <meta name="author" content="Brendan Erwin">
+
+  
+  <meta name="description" content="I&#8217;ve been working on a new open-source project recently. It&#8217;s a JavaScript library designed to convert plain-old JavaScript objects (PO...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://brendanjerwin.com/blog/2011/05/26/accessorize-js/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds2.feedburner.com/brendanjerwin_github_com" rel="alternate" title="Brendan Erwin" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<link rel="openid.server" href="https://www.myopenid.com/server/">
+<link rel="openid.delegate" href="https://brendanjerwin.myopenid.com/">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <img class="right" src="http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.jpg">
+  <h1><a href="/">Brendan Erwin</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds2.feedburner.com/brendanjerwin_github_com" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:brendanjerwin.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/projects">Projects</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Announcing - accessorize.js</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-05-26T00:00:00-04:00" pubdate  data-updated="true" >May 26<span>th</span>, 2011</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;ve been working on a new open-source project recently. It&#8217;s a JavaScript library designed to convert plain-old JavaScript objects (POJOs? Isn&#8217;t that one taken already?) into powerful models, full of tasty syntax and functionality.</p>
+
+<h2>What does it do?</h2>
+
+<p>At its most basic, accessorize.js provides accessor functions over simple JavaScript objects. It creates &#8220;JQuery-style&#8221; accessor methods which act like a Getter if no parameters are passed in, and like a Setter if a parameter value is passed in:</p>
+
+<p><code>obj.property()</code> - Getter mode</p>
+
+<p><code>obj.property("new value")</code> - Setter mode</p>
+
+<p>Even though JavaScript has standardized &#8216;real&#8217; properties, they are not available in any usable form in IE8 and below. Additionally, I believe the syntactic capabilities I&#8217;m able to give you offer some pretty compelling reasons to stay with the JQuery-style accessors.</p>
+
+<h3>Observable</h3>
+
+<p>Accessorized accessors are observable. There is a <code>.subscribe</code> method hanging off each one that can be used to register a function to be called whenever the property value changes:</p>
+
+<pre><code>obj.property.subscribe(function(newValue) { alert("value changed!")});
+</code></pre>
+
+<h3>Chain-able Setter Calls</h3>
+
+<p>Accessorized accessors can be set in a call chain, allowing more concise and readable initialization blocks:</p>
+
+<pre><code>obj.property("value")
+   .otherProp("other value")
+   .stillAnother("and so on")
+</code></pre>
+
+<h3>Underscore Integration</h3>
+
+<p>Accessorized accessors are integrated with <a href="http://documentcloud.github.com/underscore/">underscore.js</a> as well. If the Underscore object (simply <code>_</code>) is passed into the accessor, then it triggers a special Getter mode in which the property value is returned already wrapped in the Underscore wrapper. This enables extremely convenient access to the powerful capabilities Underscore provides.</p>
+
+<pre><code>obj.arrayProperty(_).each(function(val){ //do something here });
+</code></pre>
+
+<h3>Fancy Array Accessors</h3>
+
+<p>Accessorized array accessors are even more capable. In addition to the other features, including Underscore integration, array accessors also offer indexing variants of the standard accessor calls.</p>
+
+<p>An array accessor can be invoked with the standard Getter mode behavior, but if a number is passed in as a single argument, the array accessor will instead return the value of the array at that index. Like this:</p>
+
+<pre><code>obj.arrayProperty(["hello","world","accessorize.js","is here!"]); //set the array
+alert(obj.arrayProperty(2)); //returns "accessorize.js" to the user
+</code></pre>
+
+<p>The indexing Getter mode also works with Underscore as well:</p>
+
+<pre><code>obj.arrayProperty(1,_) //returns the Underscore wrapped value from that index
+</code></pre>
+
+<p>Finally, the standard <code>Array</code> methods are promoted to the accessor itself, allowing the accessor to be used as if it was an array in many cases. Methods that cause the contents of the array to change, like <code>.sort</code> will, of course, cause any subscribers to be notified of the change.</p>
+
+<pre><code>obj.arrayProperty.sort(); //sorts the array and notifies any subscribers of the changes
+</code></pre>
+
+<h2>What&#8217;s next?</h2>
+
+<p>The next major features I&#8217;ll be baking in are live DOM binding and integration with <a href="http://handlebars.strobeapp.com/">Handlebars.js</a>.</p>
+
+<p>The live DOM binding will leverage the observable accessors to make updates to your model&#8217;s values automatically appear in your UI.</p>
+
+<p>Handlebars integration will leverage the DOM bindings, allowing you to easily establish live bindings in your templates.</p>
+
+<h2>Where is it?</h2>
+
+<p><a href="http://accessorizejs.com">accessorizejs.com</a> is the project&#8217;s homepage.
+You can also go directly to the <a href="https://github.com/brendanjerwin/accessorizejs">github site</a>.</p>
+
+<p>It&#8217;s written in CoffeeScript, so you&#8217;ll have to get one of the compiled releases from the downloads section on GitHub. Or compile it yourself.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Brendan Erwin</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2011-05-26T00:00:00-04:00" pubdate  data-updated="true" >May 26<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development-javascript-coffeescript/'>development,javascript,coffeescript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://brendanjerwin.com/blog/2011/05/26/accessorize-js/" data-via="brendanjerwin" data-counturl="http://brendanjerwin.com/blog/2011/05/26/accessorize-js/" >Tweet</a>
+  
+  
+</div>
+
+    
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/05/26/accessorize-js/">Announcing - accessorize.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/04/05/inflector_extension-is-on-nuget/">inflector_extension is on NuGet now too</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/04/04/guard_claws-is-on-nuget/">guard_claws is on NuGet now</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/19/wiki-managed-help-command/">Wiki-Managed Help Command</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/09/dependency-version-leveling/">Dependency Version Leveling</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/brendanjerwin">@brendanjerwin</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'brendanjerwin',
+            count: 100,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("brendanjerwin", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/brendanjerwin" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @brendanjerwin</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Brendan Erwin -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'brendanjerwin';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://brendanjerwin.com/blog/2011/05/26/accessorize-js/';
+        var disqus_url = 'http://brendanjerwin.com/blog/2011/05/26/accessorize-js/';
+        var disqus_script = 'embed.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7681812-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

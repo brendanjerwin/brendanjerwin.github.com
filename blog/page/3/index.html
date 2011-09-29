@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Brendan Erwin</title>
+  <meta name="author" content="Brendan Erwin">
+
+  
+  <meta name="description" content="I&#8217;m using both Fluent NHibernate and NHibernate Validator in a project at work and discovered that getting the two to work together was a lit...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://brendanjerwin.com/blog/page/3/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds2.feedburner.com/brendanjerwin_github_com" rel="alternate" title="Brendan Erwin" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<link rel="openid.server" href="https://www.myopenid.com/server/">
+<link rel="openid.delegate" href="https://brendanjerwin.myopenid.com/">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <img class="right" src="http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.jpg">
+  <h1><a href="/">Brendan Erwin</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds2.feedburner.com/brendanjerwin_github_com" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:brendanjerwin.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/projects">Projects</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/">Using the NHibernate Validator With Fluent NHibernate</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-11T00:00:00-04:00" pubdate  data-updated="true" >Mar 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;m using both <a href="http://fluentnhibernate.org/">Fluent NHibernate</a> and <a href="http://nhforge.org/wikis/validator10/default.aspx">NHibernate Validator</a> in a project at work and discovered that getting the two to work together was a little less than obvious. Unfortunately, <a href="http://nhforge.org/wikis/validator10/nhibernate-validator-1-0-0-documentation.aspx">documentation</a> for the NHibernate Validator seems a little thin in this area.</p>
+<p>After some conversation in the <a href="http://groups.google.com/group/nhusers">nhusers</a> group with <a href="http://fabiomaulo.blogspot.com/">Fabio Maulo</a> I arrived at this:</p>
+<script src="http://gist.github.com/77853.js"></script><h3>Explanation</h3>
+<p>First, use <code>ExposeConfiguration</code> to, well, expose the NHibernate <code>Configuration</code> object.</p>
+<p>Then, configure a <code>ValidatorEngine</code> instance with a <code>NHVConfiguration</code> (<em>not</em> the same thing as the NHibernate <code>Configuration</code>).</p>
+<p>Finally, using the <code>ValidatorInitializer</code>, initialize the freshly configured <code>ValidatorEngine</code> along with the NHibernate <code>Configuration</code> instance.</p>
+<p>There are a couple of gotchas that I ran into: it was unclear that the NHibernate Validator needed <em>both</em> a configuration step and an initialization step. That was the real show-stopper for me since none of the documentation I found pointed me towards the initialization step. Fabio was kind enough to send me in the direction of the <code>ValidatorInitializer</code>.</p>
+<p>Secondly, the order of things matters. You must call <code>Configure()</code> on your <code>ValidatorEngine</code> instance prior to calling <code>ValidatorInitializer.Initialize()</code>. If you don&#8217;t nothing happens. No exceptions are thrown, but no integration with NHibernate happens either.</p>
+<p>Once its all in place sit back and enjoy the integration! Your validations will be checked by NHibernate on every <code>INSERT</code> and <code>UPDATE</code> <em>and</em>, if you set <code>NHibernate.Validator.Cfg.Environment.ApplyToDDL</code> to <code>"true"</code> then any schema generated by NHibernate will include constraints based on your validations. You can further <span class="caps">DRY</span> up your mappings and models that way.</p>
+<h3>Bonus:</h3>
+<p>These snippets of code are from a larger <code>Configuration</code> class I use to configure and initialize NHibernate, NHibernate Validator, and StructureMap for my applications. Here&#8217;s that class, feel free to fork and update!</p>
+<script src="http://gist.github.com/77861.js"></script><p>It has a few overloads of <code>ConfigureDataAccess</code> that are used to support different database initialization needs. The default behavior is to connect to <span class="caps">MSSQL</span> Server 2005, but it can also be used for testing and other scenarios that might want a SQLite DB. Here&#8217;s how that can be done:</p>
+<script src="http://gist.github.com/77865.js"></script></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/03/embedding-fonts/">Embedding Fonts in Your Pages, Dealing With Zeros</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-03T00:00:00-05:00" pubdate  data-updated="true" >Mar 3<span>rd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>It used to be that when you needed to differentiate an O (oh) from a 0 (zero) in a web page you could set the font to &#8220;Andale Mono&#8221; and be done with it. Not so anymore. From the <a href="http://en.wikipedia.org/wiki/Andale_Mono">wikipedia article</a>:</p>
+<blockquote>
+<p>While this typeface is no longer distributed with modern versions of Microsoft Windows (from Windows ME onwards) it is still available for download as part of the Core fonts for the Web package on Sourceforge and it is bundled with Mac OS X.</p>
+</blockquote>
+<p>We can&#8217;t very well have our users install a package of fonts just to use our sites. And it turns out that the latest versions of Windows don&#8217;t come with a suitable <em>replacement</em> font either.</p>
+<p>Luckily there is an answer: <code>@font-face</code>, a <span class="caps">CSS</span> rule that, among many other things, lets you specify a <span class="caps">URL</span> to a font used in your page. The browser simply downloads the font and renders the text with it. Unluckily, it&#8217;s not that simple.</p>
+<p>The first problem is finding a font with a license that permits that sort of distribution. Open source to the rescue: <a href="http://www.gnome.org/fonts/">Bitstream Vera Fonts</a>. The &#8220;Bitstream Vera Sans Mono&#8221; fits the bill.</p>
+<p>The second problem is that support for <code>@font-face</code> varies across browsers. Current versions of Safari support it just fine for TrueType fonts, Firefox 3.1 (currently in beta) also supports downloading TrueType fonts, and Internet Explorer has supported font downloading since some time in the late 90s! (What?!!)</p>
+<p>Internet Explorer though, does not support downloading of <em>TrueType</em> fonts. In order to embed a font in a page for Internet Explorer you need to repackage the font into an <code>EOT</code> (<code>Embedable OpenType</code>) file. <a href="http://jontangerine.com/log/2008/10/font-face-in-ie-making-web-fonts-work">Here</a> is an article I found that helped me though it. You will need to <a href="http://www.microsoft.com/typography/web/embedding/weft3/weft01.htm">download</a> and use a <em>terrible</em>, <strong>terrible</strong>, application known as &#8220;<span class="caps">WEFT</span>&#8221; to make the <code>EOT</code> file. I&#8217;m sorry.</p>
+<p>If you survive making your <code>EOT</code> file then you will need some <span class="caps">CSS</span> to make the magic work. Here is mine:</p>
+<script src="http://gist.github.com/73141.js"></script><p>And <a href="/test_font.html">here</a> is my sample page.</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/02/mvc-guidance-avoid-loading-associations-into-viewdata/">MVC Guidance - Avoid Loading Associations Into ViewData</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-02T00:00:00-05:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In reviewing some code at work I noticed a lot of cases in which the developer was reading associations from the model and loading them into ViewData. This resulted in code littered with &#8220;<a href="http://en.wikipedia.org/wiki/Magic_string_(programming)#a">magic strings</a>&#8221;. Luckily there is a better approach.<br />
+<script src="http://gist.github.com/72872.js"></script></p>
+<p><em>Where did this approach come from?</em></p>
+<p>I did some looking around and discovered that the <a href="http://www.codeplex.com/MVCContrib/Wiki/View.aspx?title=Grid&amp;referringTitle=Documentation">MvcContrib documentation</a> and some existing <span class="caps">HOW</span>-TO posts use the &#8220;magic string&#8221; approach. I suppose they were written earlier in the evolution of the <span class="caps">ASP</span>.<span class="caps">NET</span> <span class="caps">MVC</span> framework.</p></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/27/super-simple-ruby-orm/">Super-Simple Ruby &#8220;ORM&#8221;</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-27T00:00:00-05:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>We are using Cucumber Features to document requirement stories for a project I&#8217;m working on. The project itself is written in c# but we are using Ruby to run the features in Cucumber. I needed a simple, clear method to verify some expectations against a database. I would have loved to simply use our existing NHibernate backed domain model, but IronRuby just wasn&#8217;t up to the task of running Cucumber for me. Next thought was to use DataMapper or ActiveRecord but I pretty quickly dismissed that since we already have our domain models and, since our database is pretty rough to work in, the domain was fairly painful to build the first time. Why would I want to build it again especially since IronRuby will soon enough allow us to use our c# domain models?</p>
+
+<p>So&#8230; I decided to make a super-simple &#8220;ORM&#8221; to simplify the syntax of our expectations. All it does is wrap up a row returned from the database into a ruby object with methods for each column:</p>
+
+<script src="http://gist.github.com/71472.js"></script>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/02/27/blog-is-up-and-running/">My Blog Is Up and Running</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-02-27T00:00:00-05:00" pubdate  data-updated="true" >Feb 27<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>My blog is now up and running. I&#8217;m hosting it on <a href="http://www.github.com">GitHub</a> as you can probably see from the <span class="caps">URL</span>. It&#8217;s a pretty interesting system, let me count the ways:</p>
+<ol>
+	<li>These posts are simply text<sup class="footnote" id="fnr1"><a href="#fn1">1</a></sup> files stored in my git repository. When I push changes up to GitHub, they run <a href="http://github.com/mojombo/jekyll">Jekyll</a> to process the source pages into the <span class="caps">HTML</span> you see here. See <a href="http://github.com/blog/272-github-pages">this</a> page to read more about it.</li>
+	<li>Each posting has comments and ratings provided by <a href="http://js-kit.com/">JS-Kit</a>.</li>
+	<li>My home page has a &#8220;My Activity&#8221; feed powered by <a href="http://pipes.yahoo.com/">Y! Pipes</a> that collects activity feeds from various places (GitHub and Twitter right now) and aggregates them into the one list.</li>
+</ol>
+<p>All in all, I&#8217;ve got a surprising amount of interactivity on this site considering it is nothing but static <span class="caps">HTML</span> pages. Gotta love <em>Web 2.0</em>, huh?</p>
+<blockquote>
+<p><em>Update:</em> I&#8217;ve added a Google Custom Search too. The atom feed gives Google a site map so they will be indexing my posts regularly. The search results are loaded into an <code>iFrame</code> on my <code>search_results.html</code> page so you get a pretty seamless experience. (If I actually had some reasonable navigation on this site you&#8217;d continue to see it even while searching.)</p>
+</blockquote>
+<p class="footnote" id="fn1"><a href="#fnr1"><sup>1</sup></a> Well, <a href="http://textile.thresholdstate.com/">textile</a> actually.</p></div>
+  
+  
+
+
+    </article>
+  
+  <nav class="pagination">
+    <div>
+      
+      <a href="/blog/archives">Blog Archives</a>
+      
+      <a class="next" href="/blog/page/2/">Newer &rarr;</a>
+      
+    </div>
+  </nav>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/05/26/accessorize-js/">Announcing - accessorize.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/04/05/inflector_extension-is-on-nuget/">inflector_extension is on NuGet now too</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/04/04/guard_claws-is-on-nuget/">guard_claws is on NuGet now</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/19/wiki-managed-help-command/">Wiki-Managed Help Command</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/09/dependency-version-leveling/">Dependency Version Leveling</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  
+  <a href="https://github.com/brendanjerwin">@brendanjerwin</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'brendanjerwin',
+            count: 100,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating&#8230;</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("brendanjerwin", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/brendanjerwin" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @brendanjerwin</a>
+  
+</section>
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Brendan Erwin -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+    (function () {
+      var disqus_shortname = 'brendanjerwin';
+      
+        
+        var disqus_script = 'count.js'
+      
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7681812-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

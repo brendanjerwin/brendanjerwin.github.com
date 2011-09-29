@@ -1,0 +1,267 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Using the NHibernate Validator with Fluent NHibernate - Brendan Erwin</title>
+  <meta name="author" content="Brendan Erwin">
+
+  
+  <meta name="description" content="I&#8217;m using both Fluent NHibernate and NHibernate Validator in a project at work and discovered that getting the two to work together was a lit...">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://brendanjerwin.com/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="http://feeds2.feedburner.com/brendanjerwin_github_com" rel="alternate" title="Brendan Erwin" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<link rel="openid.server" href="https://www.myopenid.com/server/">
+<link rel="openid.delegate" href="https://brendanjerwin.myopenid.com/">
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <img class="right" src="http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.jpg">
+  <h1><a href="/">Brendan Erwin</a></h1>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="http://feeds2.feedburner.com/brendanjerwin_github_com" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:brendanjerwin.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/projects">Projects</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Using the NHibernate Validator With Fluent NHibernate</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-11T00:00:00-04:00" pubdate  data-updated="true" >Mar 11<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I&#8217;m using both <a href="http://fluentnhibernate.org/">Fluent NHibernate</a> and <a href="http://nhforge.org/wikis/validator10/default.aspx">NHibernate Validator</a> in a project at work and discovered that getting the two to work together was a little less than obvious. Unfortunately, <a href="http://nhforge.org/wikis/validator10/nhibernate-validator-1-0-0-documentation.aspx">documentation</a> for the NHibernate Validator seems a little thin in this area.</p>
+<p>After some conversation in the <a href="http://groups.google.com/group/nhusers">nhusers</a> group with <a href="http://fabiomaulo.blogspot.com/">Fabio Maulo</a> I arrived at this:</p>
+<script src="http://gist.github.com/77853.js"></script><h3>Explanation</h3>
+<p>First, use <code>ExposeConfiguration</code> to, well, expose the NHibernate <code>Configuration</code> object.</p>
+<p>Then, configure a <code>ValidatorEngine</code> instance with a <code>NHVConfiguration</code> (<em>not</em> the same thing as the NHibernate <code>Configuration</code>).</p>
+<p>Finally, using the <code>ValidatorInitializer</code>, initialize the freshly configured <code>ValidatorEngine</code> along with the NHibernate <code>Configuration</code> instance.</p>
+<p>There are a couple of gotchas that I ran into: it was unclear that the NHibernate Validator needed <em>both</em> a configuration step and an initialization step. That was the real show-stopper for me since none of the documentation I found pointed me towards the initialization step. Fabio was kind enough to send me in the direction of the <code>ValidatorInitializer</code>.</p>
+<p>Secondly, the order of things matters. You must call <code>Configure()</code> on your <code>ValidatorEngine</code> instance prior to calling <code>ValidatorInitializer.Initialize()</code>. If you don&#8217;t nothing happens. No exceptions are thrown, but no integration with NHibernate happens either.</p>
+<p>Once its all in place sit back and enjoy the integration! Your validations will be checked by NHibernate on every <code>INSERT</code> and <code>UPDATE</code> <em>and</em>, if you set <code>NHibernate.Validator.Cfg.Environment.ApplyToDDL</code> to <code>"true"</code> then any schema generated by NHibernate will include constraints based on your validations. You can further <span class="caps">DRY</span> up your mappings and models that way.</p>
+<h3>Bonus:</h3>
+<p>These snippets of code are from a larger <code>Configuration</code> class I use to configure and initialize NHibernate, NHibernate Validator, and StructureMap for my applications. Here&#8217;s that class, feel free to fork and update!</p>
+<script src="http://gist.github.com/77861.js"></script><p>It has a few overloads of <code>ConfigureDataAccess</code> that are used to support different database initialization needs. The default behavior is to connect to <span class="caps">MSSQL</span> Server 2005, but it can also be used for testing and other scenarios that might want a SQLite DB. Here&#8217;s how that can be done:</p>
+<script src="http://gist.github.com/77865.js"></script></div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Brendan Erwin</span></span>
+
+      
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-11T00:00:00-04:00" pubdate  data-updated="true" >Mar 11<span>th</span>, 2009</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development-dotnet/'>development,dotnet</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://brendanjerwin.com/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/" data-via="brendanjerwin" data-counturl="http://brendanjerwin.com/blog/2009/03/11/using-nhibernate-validator-with-fluent-nhibernate/" >Tweet</a>
+  
+  
+</div>
+
+    
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2011/05/26/accessorize-js/">Announcing - accessorize.js</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/04/05/inflector_extension-is-on-nuget/">inflector_extension is on NuGet now too</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2011/04/04/guard_claws-is-on-nuget/">guard_claws is on NuGet now</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/19/wiki-managed-help-command/">Wiki-Managed Help Command</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2010/09/09/dependency-version-leveling/">Dependency Version Leveling</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/brendanjerwin">@brendanjerwin</a> on Github
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'brendanjerwin',
+            count: 100,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("brendanjerwin", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/brendanjerwin" class="twitter-follow-button" data-width="208px" data-show-count="false">Follow @brendanjerwin</a>
+  
+</section>
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2011 - Brendan Erwin -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-7681812-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+  
+
+  
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+</body>
+</html>

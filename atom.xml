@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>Brendan Erwin</title>
+  <link href="http://brendanjerwin.com/atom.xml" rel="self"/>
+  <link href="http://brendanjerwin.com/"/>
+  <updated>2011-09-28T22:36:34-04:00</updated>
+  <id>http://brendanjerwin.com/</id>
+  <author>
+    <name>Brendan Erwin</name>
+    
+  </author>
+
+  
+  <entry>
+    <title>Announcing - accessorize.js</title>
+    <link href="http://brendanjerwin.com/blog/2011/05/26/accessorize-js/"/>
+    <updated>2011-05-26T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2011/05/26/accessorize-js</id>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve been working on a new open-source project recently. It&amp;#8217;s a JavaScript library designed to convert plain-old JavaScript objects (POJOs? Isn&amp;#8217;t that one taken already?) into powerful models, full of tasty syntax and functionality.&lt;/p&gt;
+
+&lt;h2&gt;What does it do?&lt;/h2&gt;
+
+&lt;p&gt;At its most basic, accessorize.js provides accessor functions over simple JavaScript objects. It creates &amp;#8220;JQuery-style&amp;#8221; accessor methods which act like a Getter if no parameters are passed in, and like a Setter if a parameter value is passed in:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;obj.property()&lt;/code&gt; - Getter mode&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;obj.property(&quot;new value&quot;)&lt;/code&gt; - Setter mode&lt;/p&gt;
+
+&lt;p&gt;Even though JavaScript has standardized &amp;#8216;real&amp;#8217; properties, they are not available in any usable form in IE8 and below. Additionally, I believe the syntactic capabilities I&amp;#8217;m able to give you offer some pretty compelling reasons to stay with the JQuery-style accessors.&lt;/p&gt;
+
+&lt;h3&gt;Observable&lt;/h3&gt;
+
+&lt;p&gt;Accessorized accessors are observable. There is a &lt;code&gt;.subscribe&lt;/code&gt; method hanging off each one that can be used to register a function to be called whenever the property value changes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obj.property.subscribe(function(newValue) { alert(&quot;value changed!&quot;)});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Chain-able Setter Calls&lt;/h3&gt;
+
+&lt;p&gt;Accessorized accessors can be set in a call chain, allowing more concise and readable initialization blocks:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obj.property(&quot;value&quot;)
+   .otherProp(&quot;other value&quot;)
+   .stillAnother(&quot;and so on&quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Underscore Integration&lt;/h3&gt;
+
+&lt;p&gt;Accessorized accessors are integrated with &lt;a href=&quot;http://documentcloud.github.com/underscore/&quot;&gt;underscore.js&lt;/a&gt; as well. If the Underscore object (simply &lt;code&gt;_&lt;/code&gt;) is passed into the accessor, then it triggers a special Getter mode in which the property value is returned already wrapped in the Underscore wrapper. This enables extremely convenient access to the powerful capabilities Underscore provides.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obj.arrayProperty(_).each(function(val){ //do something here });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Fancy Array Accessors&lt;/h3&gt;
+
+&lt;p&gt;Accessorized array accessors are even more capable. In addition to the other features, including Underscore integration, array accessors also offer indexing variants of the standard accessor calls.&lt;/p&gt;
+
+&lt;p&gt;An array accessor can be invoked with the standard Getter mode behavior, but if a number is passed in as a single argument, the array accessor will instead return the value of the array at that index. Like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obj.arrayProperty([&quot;hello&quot;,&quot;world&quot;,&quot;accessorize.js&quot;,&quot;is here!&quot;]); //set the array
+alert(obj.arrayProperty(2)); //returns &quot;accessorize.js&quot; to the user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The indexing Getter mode also works with Underscore as well:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obj.arrayProperty(1,_) //returns the Underscore wrapped value from that index
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, the standard &lt;code&gt;Array&lt;/code&gt; methods are promoted to the accessor itself, allowing the accessor to be used as if it was an array in many cases. Methods that cause the contents of the array to change, like &lt;code&gt;.sort&lt;/code&gt; will, of course, cause any subscribers to be notified of the change.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;obj.arrayProperty.sort(); //sorts the array and notifies any subscribers of the changes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;What&amp;#8217;s next?&lt;/h2&gt;
+
+&lt;p&gt;The next major features I&amp;#8217;ll be baking in are live DOM binding and integration with &lt;a href=&quot;http://handlebars.strobeapp.com/&quot;&gt;Handlebars.js&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The live DOM binding will leverage the observable accessors to make updates to your model&amp;#8217;s values automatically appear in your UI.&lt;/p&gt;
+
+&lt;p&gt;Handlebars integration will leverage the DOM bindings, allowing you to easily establish live bindings in your templates.&lt;/p&gt;
+
+&lt;h2&gt;Where is it?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://accessorizejs.com&quot;&gt;accessorizejs.com&lt;/a&gt; is the project&amp;#8217;s homepage.
+You can also go directly to the &lt;a href=&quot;https://github.com/brendanjerwin/accessorizejs&quot;&gt;github site&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#8217;s written in CoffeeScript, so you&amp;#8217;ll have to get one of the compiled releases from the downloads section on GitHub. Or compile it yourself.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>inflector_extension is on NuGet now too</title>
+    <link href="http://brendanjerwin.com/blog/2011/04/05/inflector_extension-is-on-nuget/"/>
+    <updated>2011-04-05T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2011/04/05/inflector_extension-is-on-nuget</id>
+    <content type="html">&lt;p&gt;After getting &lt;a href=&quot;http://brendanjerwin.com/development/dotnet/littlebits/guard_claws/2011/04/04/guard_claws-is-on-nuget.html&quot;&gt;guard_claws&lt;/a&gt; on NuGet yesterday, it was fairly simple to get &lt;a href=&quot;https://github.com/littlebits/inflector_extension&quot;&gt;inflector_extension&lt;/a&gt; up there this morning as well.&lt;/p&gt;
+
+&lt;p&gt;You can see the package on the NuGet browsing site &lt;a href=&quot;http://www.nuget.org/List/Packages/inflector_extension&quot;&gt;here&lt;/a&gt;. Be sure to let me know how it goes.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>guard_claws is on NuGet now</title>
+    <link href="http://brendanjerwin.com/blog/2011/04/04/guard_claws-is-on-nuget/"/>
+    <updated>2011-04-04T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2011/04/04/guard_claws-is-on-nuget</id>
+    <content type="html">&lt;p&gt;I finally got around to updating &lt;a href=&quot;https://github.com/littlebits/guard_claws/&quot;&gt;guard_claws&lt;/a&gt;, closing a few issues, and getting it published on the clear winner in the .NET Package Management space: &lt;a href=&quot;http://www.nuget.org&quot;&gt;NuGet&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can see my package on the NuGet browsing site &lt;a href=&quot;http://www.nuget.org/List/Packages/guard_claws&quot;&gt;here&lt;/a&gt;. Be sure to let me know how it goes.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Wiki-Managed Help Command</title>
+    <link href="http://brendanjerwin.com/blog/2010/09/19/wiki-managed-help-command/"/>
+    <updated>2010-09-19T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/09/19/wiki-managed-help-command</id>
+    <content type="html">&lt;p&gt;Nu just got (at least in the develop branch, it&amp;#8217;ll be released soon) a new &lt;code&gt;help&lt;/code&gt; command. It works by taking in a sequence of subjects and displaying an article about them. Something like this: &lt;code&gt;nu help commands install&lt;/code&gt; or &lt;code&gt;nu help about authors&lt;/code&gt; or even &lt;code&gt;nu help commands install conflicts&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;My favorite part about this system is that the content is actually maintained in the GitHub wiki for the project. The new GitHub wikis are now stored as a git repository of files, which opens up all sorts of interesting possibilities. If someone wants to update some existing documentation they simply need to edit the page in the wiki and the next release can include their modifications. If someone wants to add an entirely new subject to the documentation all they need to do is add a page and the next release will pick that up too.&lt;/p&gt;
+
+&lt;p&gt;I added the wiki as a submodule of the main project in a &lt;code&gt;docs&lt;/code&gt; folder. Then I modified the &lt;code&gt;nu.gemspec&lt;/code&gt; to include the &lt;code&gt;docs&lt;/code&gt; folder in the gem. At runtime I simply join all the command-line arguments with a dash (-), stick &lt;code&gt;.md&lt;/code&gt; on the end and go look in the gem folder for the file. There is a tiny bit of post-processing to remove hyper-link markup and, eventually, to dereference cross-reference &amp;#8216;See:&amp;#8217; links. There is an &lt;a href=&quot;http://github.com/nu/nu/issues#issue/19&quot; title=&quot;Issue 19: Documentation System - &#8216;See: subject&#8217;&quot;&gt;issue&lt;/a&gt; describing the cross-reference functionality.&lt;/p&gt;
+
+&lt;p&gt;The end result of all this is that Nu gets a great documentation resource that is available at runtime, available online, and can be conveniently maintained by more than just the core team. Win, win, and more win.&lt;/p&gt;
+
+&lt;p&gt;Here is an example of some of the documentation in the wiki:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://emberapp.com/brendanjerwin/images/safari&quot; title=&quot;View Image Safari&quot;&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/safari/sizes/m.png&quot; title=&quot;Safari&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And this is what it looks like at run-time:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://emberapp.com/users/brendanjerwin/images/terminal-bash-8024-1&quot; title=&quot;View Terminal — bash — 80×24&quot;&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/terminal-bash-8024-1/sizes/l.png&quot; alt=&quot;Terminal — bash — 80×24&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Dependency Version Leveling</title>
+    <link href="http://brendanjerwin.com/blog/2010/09/09/dependency-version-leveling/"/>
+    <updated>2010-09-09T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/09/09/dependency-version-leveling</id>
+    <content type="html">&lt;p&gt;There is an open issue for Nu right now referring to &lt;a href=&quot;http://github.com/nu/nu/issues#issue/13&quot;&gt;&amp;#8220;Dependency Leveling&amp;#8221;&lt;/a&gt;. This is the idea that Nu will find the highest versioned set of dependencies that can work together for a given lib folder. There has been a bit of discussion on it, but since I&amp;#8217;m about to start writing code, I thought it would be helpful to describe my thoughts here.&lt;/p&gt;
+
+&lt;p&gt;Here is an example from the mailing list (slightly edited):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nu install fluentnhibernate
+nu install castle.windsor
+
+FNH is built against NH 2.1.2 and that in turn runs against castle.core 1.1.0.0
+Windsor 2.5 then is built against castle.core 2.5 and windsor 2.1 is built against 1.2
+So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.4000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The Ruby Gems package contains enough information to solve this problem but Nu is going to have to recognize when these version conflicts occur and fix them automatically or offer a solution to the user.&lt;/p&gt;
+
+&lt;p&gt;In this case, Fluent NHibernate and NHibernate were installed first; Fluent NHibernate will be at the most current version available and NHibernate will be at the most current version available that fits within Fluent&amp;#8217;s constraints.&lt;/p&gt;
+
+&lt;p&gt;When Castle Windsor is installed, Nu needs to detect that Castle Windsor and NHibernate have a dependency in common, and then recognize that there is a version conflict.&lt;/p&gt;
+
+&lt;h4&gt;Dependency Version Overlap&lt;/h4&gt;
+
+&lt;p&gt;The first attempt at resolving the conflict will be to see if a the version requirements for Castle.Core in the installed version of NHibernate and the requested version of Castle Windsor have any versions in common. If so, Nu will install that version of Castle.Core. Nu will not ask for permission to do this.&lt;/p&gt;
+
+&lt;h4&gt;Newcomer Downgrade&lt;/h4&gt;
+
+&lt;p&gt;That won&amp;#8217;t work in this example though, so Nu will start attempting the same Dependency Version Overlap check on the previous version of Castle Windsor. It will continue checking older and older versions until it reaches a predefined hard-stop or finds a compatible package. In our example, Nu would find that Castle Windsor 2.0.0.0 was compatible and install it. Nu would perform this downgrade automatically, without asking the user for permission.&lt;/p&gt;
+
+&lt;h4&gt;Incumbent Dependency Downgrade&lt;/h4&gt;
+
+&lt;p&gt;If the conflicting package is itself a dependency of another package, like NHibernate in our example, the next approach that Nu can try is to see if, by downgrading the conflicting package, it can find a compatible set. In this case, Nu will attempt to downgrade NHibernate, within the dependency requirements of all packages which depend on it, until it finds a compatible set or runs out of available options. For each compatibility check Nu will execute the entire stack of rules, i.e. it will first look for Dependency Version Overlap, and then attempt to downgrade Castle Windsor using Newcomer Downgrade. If Nu is able to find a workable set here it will also do so automatically, since the downgrades were within the declared compatible versions of the installed package (Fluent NHibernate).&lt;/p&gt;
+
+&lt;h4&gt;Root Package Downgrade&lt;/h4&gt;
+
+&lt;p&gt;The final approach Nu can take is to try the same set of operations, but attempt downgrades of the packages at the root of the dependency graph. It would, in our example, attempt to downgrade Fluent NHibernate and then run through the entire set of compatibility checks. It would continue downgrading Fluent NHibernate until it found a compatible set or hit a hard-stop. If Nu were able to find a compatible set, it would display the versions to the user and ask if they wanted to rebuild their lib folder to match.&lt;/p&gt;
+
+&lt;p&gt;These rules get increasingly expensive to execute, so I think a good approach would be to implement just the first two rules and see how things go. If we run into real-world situations that look like we would like to solve then we can implement the other rules one at a time.&lt;/p&gt;
+
+&lt;h3&gt;Help!&lt;/h3&gt;
+
+&lt;p&gt;I would &lt;em&gt;love&lt;/em&gt; some thoughts on these rules. Some other examples (real or cooked up) that illustrate the edge conditions are also appreciated. This set of rules is important if Nu is going to be valuable to the .NET community. Like Daniel &lt;a href=&quot;http://groups.google.com/group/nu-net/browse_thread/thread/481e9769a54b4292&quot;&gt;said&lt;/a&gt;, without it Nu &amp;#8220;is just a glorified wget.&amp;#8221;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Nubular (nu) Project Gets a New Contributor</title>
+    <link href="http://brendanjerwin.com/blog/2010/09/07/nubular-gets-a-new-contributor/"/>
+    <updated>2010-09-07T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/09/07/nubular-gets-a-new-contributor</id>
+    <content type="html">&lt;p&gt;I&amp;#8217;m now an official contributor to the &lt;a href=&quot;http://github.com/nu/nu/&quot;&gt;Nubular&lt;/a&gt; project. I&amp;#8217;ll be working on the client software just as I have been, but now I&amp;#8217;ll get to push right to the main repository.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/nubular_logo.jpg&quot; alt=&quot;Nubular&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;m enjoying this project a lot. It provides me with a nice outlet for my Ruby envy, gives me something to blog about that is of some interest to others, and lets me contribute back to the open source community a bit.&lt;/p&gt;
+
+&lt;p&gt;My choice of hacking focus will be influenced a lot by votes on issues, so if there is a particular feature or bug-fix that you are interested in give it an up-vote! By the way, the vote button is the tiny little triangle near the issue number.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://s3.amazonaws.com/ember/FzoKVJJVloYg1PqjKKSLWk3ILG4Ckh0i_m.png&quot; title=&quot;Vote Button&quot; alt=&quot;Vote Button&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;#8217;ll blog here as new functionality is added, so stay tuned.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Nubular (Nu) Command - Specification</title>
+    <link href="http://brendanjerwin.com/blog/2010/09/06/nu-specification/"/>
+    <updated>2010-09-06T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/09/06/nu-specification</id>
+    <content type="html">&lt;p&gt;&lt;strong&gt;UPDATE:&lt;/strong&gt; Released in v0.2.5.&lt;/p&gt;
+
+&lt;p&gt;Nubular (Nu) will be getting a new command soon: &lt;code&gt;specification&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;specification&lt;/code&gt; command is intended to provide detailed package information to integrating applications. (Most notably &lt;a href=&quot;http://github.com/kiliman/NuForVS&quot;&gt;NuForVS&lt;/a&gt;.)&lt;/p&gt;
+
+&lt;p&gt;It can be used to get package information from a lib folder (default), the local machine&amp;#8217;s gem cache (&lt;code&gt;&#8211;cache&lt;/code&gt;), or from the configured gem servers (&lt;code&gt;&#8211;remote&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;When querying either the local cache or remote servers, you can specify a particular version with the &lt;code&gt;&#8211;version&lt;/code&gt; switch, or Nu will simply return the specification for the highest, non-pre-release, version available. It&amp;#8217;s not valid to specify a version when querying against a lib folder.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;specification&lt;/code&gt; command &lt;em&gt;always&lt;/em&gt; returns JSON even if the &lt;code&gt;&#8211;json&lt;/code&gt; switch is not set, so don&amp;#8217;t be surprised if you can&amp;#8217;t read the output.&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Nubular (Nu) - Using Ruby Gems to manage .Net Libraries</title>
+    <link href="http://brendanjerwin.com/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries/"/>
+    <updated>2010-08-29T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/08/29/nubular-using-gems-to-manage-dotnet-libraries</id>
+    <content type="html">&lt;p&gt;I&amp;#8217;ve recently started hacking on a pretty cool project. Nubular, or nu, is a front-end over Ruby Gems that is intended to maintain third-party references in a .Net project&amp;#8217;s Lib folder.&lt;/p&gt;
+
+&lt;p&gt;It utilizes the dependency resolution system already built into Ruby Gems to resolve, download, and install all the pieces and parts needed when adding a third-party reference.&lt;/p&gt;
+
+&lt;p&gt;For example, executing &lt;code&gt;nu install fluentnhibernate&lt;/code&gt; produces a Lib folder with these packages:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;The following packages are installed:
+=====================================
+    castle.core-1.1.0.0
+    castle.dynamicproxy2-2.1.0.0
+    fluentnhibernate-1.1.0.685
+    log4net-1.2.10.0
+    nhibernate-2.1.2.4000
+=====================================
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;(That output was generated with &lt;code&gt;nu report&lt;/code&gt;.)&lt;/p&gt;
+
+&lt;p&gt;It&amp;#8217;s pretty amazing how quickly and easily I can go from 0 to ready to roll with all my standard OSS infrastructure downloaded and waiting for me.&lt;/p&gt;
+
+&lt;p&gt;The project&amp;#8217;s wiki is &lt;a href=&quot;http://nu.wikispot.org/&quot;&gt;here&lt;/a&gt; and the mailing list (Google Groups) is &lt;a href=&quot;http://groups.google.com/group/nu-net&quot;&gt;here&lt;/a&gt;. A list of currently available packages is &lt;a href=&quot;http://nu.wikispot.org/Current%5FPackages&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There is also a Visual Studio Add-In being developed! It should make things wonderfully easy to manage. You can get it &lt;a href=&quot;http://github.com/kiliman/NuForVS/downloads&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;object width=&quot;660&quot; height=&quot;525&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/0-1UPrKu3wg?fs=1&amp;amp;hl=en_US&amp;amp;rel=0&amp;amp;color1=0x3a3a3a&amp;amp;color2=0x999999&amp;amp;border=1&quot;&gt;&lt;/param&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot;&gt;&lt;/param&gt;&lt;param name=&quot;allowscriptaccess&quot; value=&quot;always&quot;&gt;&lt;/param&gt;&lt;embed src=&quot;http://www.youtube.com/v/0-1UPrKu3wg?fs=1&amp;amp;hl=en_US&amp;amp;rel=0&amp;amp;color1=0x3a3a3a&amp;amp;color2=0x999999&amp;amp;border=1&quot; type=&quot;application/x-shockwave-flash&quot; allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; width=&quot;660&quot; height=&quot;525&quot;&gt;&lt;/embed&gt;&lt;/object&gt;
+
+</content>
+  </entry>
+  
+  <entry>
+    <title>Inflector_extension is now a Nubular Gem</title>
+    <link href="http://brendanjerwin.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem/"/>
+    <updated>2010-08-29T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/08/29/inflector_extension_now_a_nubular_gem</id>
+    <content type="html">&lt;p&gt;The wiki is &lt;a href=&quot;http://github.com/littlebits/inflector_extension/wiki&quot; title=&quot;inflector_extension wiki&quot;&gt;here&lt;/a&gt; and the gem is &lt;a href=&quot;http://rubygems.org/gems/inflector_extension&quot; title=&quot;inflector_extension gem&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;inflector_extension&lt;/strong&gt; provides a nice set of extension methods offering tons of useful inflections of various types. Strings, Ints, Decimals, etc.&lt;/p&gt;
+
+&lt;h2&gt;Usage&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install it :: &lt;a href=&quot;http://nu.wikispot.org/&quot; title=&quot;Nubular&quot;&gt;&lt;code&gt;nu install inflector_extension&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Reference it :: The extension classes are in the global namespace so you don&amp;#8217;t need any &lt;code&gt;usings&lt;/code&gt; before they are available.&lt;/li&gt;
+&lt;li&gt;Use it :: &lt;code&gt;&quot;string&quot;.InflectTo()&lt;/code&gt; or &lt;code&gt;1.InflectTo()&lt;/code&gt; or, for a real blast: &lt;code&gt;637849590678.InflectTo().Phrase&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;See the &lt;a href=&quot;http://github.com/littlebits/inflector_extension/tree/master/inflector_extension/Specs/&quot; title=&quot;inflector_extension specs&quot;&gt;specs&lt;/a&gt; for example usages.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;em&gt;In case you are wondering, that big-ass number turns into:&lt;/em&gt; &lt;code&gt;&quot;Six Hundred and Thirty Seven Billion, Eight Hundred and Forty Nine Million, Five Hundred and Ninety Thousand, Six Hundred and Seventy Eight&quot;&lt;/code&gt;&lt;/p&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>Rake Tasks for .NET Projects on GitHub</title>
+    <link href="http://brendanjerwin.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github/"/>
+    <updated>2010-03-06T00:00:00-05:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/03/06/rake-tasks-for-dot-net-projects-on-github</id>
+    <content type="html">&lt;p&gt;I host some open source projects on GitHub and recently put together a few Rake tasks to help with making new releases and deploying their binaries. I call it like: &lt;code&gt;rake release:all TAG=0.0.1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;The tasks assume that your solution file will be named like: &lt;code&gt;github_repo_name.sln&lt;/code&gt; and at the root of the repository, that the main project will be in a subfolder with the same name as the solution, and that there is a &lt;code&gt;README.markdown&lt;/code&gt; at the root of the repository. Here is the structure from one of my projects:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/example-project-structure-for-release-rake-ta/sizes/m.png&quot; title=&quot;Example project structure for release rake tasks&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;And here is the &lt;code&gt;Rakefile&lt;/code&gt;:&lt;br /&gt;
+&lt;script src=&quot;http://gist.github.com/324025.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>A Nice Way to Provide View Helpers for Site Infrastructure</title>
+    <link href="http://brendanjerwin.com/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure/"/>
+    <updated>2010-03-06T00:00:00-05:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure</id>
+    <content type="html">&lt;p&gt;In an &lt;span class=&quot;caps&quot;&gt;ASP&lt;/span&gt;.&lt;span class=&quot;caps&quot;&gt;NET&lt;/span&gt; MVC2 app I&amp;#8217;m working on I wanted to add some helpers to my views for concepts like &lt;code&gt;Flash&lt;/code&gt; (a la Rails, not Adobe).&lt;/p&gt;
+&lt;p&gt;The code in my view bases was getting out of hand and had a lot of duplication so I restructured it. I thought it was kind of interesting, so here it is:&lt;/p&gt;
+&lt;p&gt;You can clone this gist with this clone &lt;span class=&quot;caps&quot;&gt;URL&lt;/span&gt;: &lt;code&gt;git://gist.github.com/300398.git&lt;/code&gt;&lt;br /&gt;
+&lt;script src=&quot;http://gist.github.com/300398.js&quot;&gt;&lt;/script&gt;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>Inflector Extension</title>
+    <link href="http://brendanjerwin.com/blog/2010/02/25/inflector-extension/"/>
+    <updated>2010-02-25T00:00:00-05:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/02/25/inflector-extension</id>
+    <content type="html">&lt;p&gt;I just released a little wrapper around the uNHAddins Inflector called &lt;a href=&quot;http://github.com/brendanjerwin/inflector_extension&quot;&gt;Inflector Extension&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It provides a convenient &lt;code&gt;Inflect()&lt;/code&gt; extension method on &lt;code&gt;string&lt;/code&gt; and &lt;code&gt;int&lt;/code&gt;. The &lt;code&gt;int&lt;/code&gt; variation only has the &amp;#8220;Ordinalize&amp;#8221; method but the &lt;code&gt;string&lt;/code&gt; version has pretty much all the inflections.&lt;/p&gt;
+&lt;p&gt;Have fun!&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>Html.ListBoxFor - Yes, it Needs Two Lists</title>
+    <link href="http://brendanjerwin.com/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists/"/>
+    <updated>2010-02-10T00:00:00-05:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/02/10/html-listboxfor-yes-it-needs-two-lists</id>
+    <content type="html">&lt;p&gt;It took me a while to figure this out. As a matter of fact, this is the second post on the subject since the first post was &lt;em&gt;wrong&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In &lt;span class=&quot;caps&quot;&gt;ASP&lt;/span&gt;.&lt;span class=&quot;caps&quot;&gt;NET&lt;/span&gt; MVC2, the &lt;code&gt;Html.ListBoxFor()&lt;/code&gt; method needs two parameters that seem to refer to the same data:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://emberapp.com/brendanjerwin/images/listboxfor-parameters&quot; title=&quot;View Image ListBoxFor Parameters at Ember.com&quot;&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/listboxfor-parameters/sizes/m.png&quot; title=&quot;ListBoxFor Parameters&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+(My example is concerned with a &lt;code&gt;Permission&lt;/code&gt; enumeration.)&lt;/p&gt;
+&lt;p&gt;The behavior of this method just wasn&amp;#8217;t very clear at all. It turns out that the first parameter, &lt;code&gt;expression&lt;/code&gt;, is intended to reference the model property that contains a list of the selected items. In my case its an &lt;code&gt;IEnumerable&amp;lt;Permission&amp;gt;&lt;/code&gt;. Call this parameter &amp;#8220;selected items&amp;#8221; instead of &lt;code&gt;expression&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;The second parameter is an &lt;code&gt;IEnumerable&amp;lt;SelectListItem&amp;gt;&lt;/code&gt; called &lt;code&gt;selectList&lt;/code&gt;. It is a list of &lt;code&gt;SelectListItems&lt;/code&gt; which represents all the possible values that could be selected. Call this parameter &amp;#8220;all available items&amp;#8221; instead of &lt;code&gt;selectList&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;When &lt;code&gt;ListBoxFor()&lt;/code&gt; is rendering the list html, it will mark the items as selected when the item&amp;#8217;s &lt;em&gt;value&lt;/em&gt; is found in both lists. It&amp;#8217;s important to not use an &lt;code&gt;IEnumerable&amp;lt;SelectListItem&amp;gt;&lt;/code&gt; on the model property.&lt;/p&gt;
+&lt;p&gt;When the model binders deserialize the form on a &lt;span class=&quot;caps&quot;&gt;POST&lt;/span&gt;, the model&amp;#8217;s property will only contain entries for those values that were marked as selected.&lt;/p&gt;
+&lt;p&gt;Once I figured out what the intent was I&amp;#8217;m pretty happy with this helper, but boy those parameter names are &lt;em&gt;useless!&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>How I Structure Tests</title>
+    <link href="http://brendanjerwin.com/blog/2010/02/09/how-i-structure-tests/"/>
+    <updated>2010-02-09T00:00:00-05:00</updated>
+    <id>http://brendanjerwin.com/blog/2010/02/09/how-i-structure-tests</id>
+    <content type="html">&lt;p&gt;This came up at work today, and it seems worth posting.&lt;/p&gt;
+&lt;p&gt;The way I&amp;#8217;ve settled on organizing my tests/specs: first, I create general category folders for major architectural chunks of my application. In this example I have &lt;code&gt;Domain&lt;/code&gt; and &lt;code&gt;Persistance&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://emberapp.com/brendanjerwin/images/vmware-fusion&quot; title=&quot;View Image VMware Fusion at Ember.com&quot;&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/vmware-fusion/sizes/m.png&quot; title=&quot;VMware Fusion&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Inside those, if needed, I&amp;#8217;ll add further folders to mimic the namespace of the code under test. In this case I have a fairly shallow domain (although it&amp;#8217;ll get deaper with time and I&amp;#8217;ll restructure the tests).&lt;/p&gt;
+&lt;p&gt;Finally, for each module I&amp;#8217;m specifying, I&amp;#8217;ll create a folder and for each method or scenario (if the the behavior is bigger than a single method) I&amp;#8217;ll create a fixture. Inside each fixture I&amp;#8217;ll list the various specifications.&lt;/p&gt;
+&lt;p&gt;This all results in a nice organization when running tests and makes it easy to add new specifications as needed.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://emberapp.com/brendanjerwin/images/vmware-fusion-1&quot; title=&quot;View Image VMware Fusion at Ember.com&quot;&gt;&lt;img src=&quot;http://emberapp.com/brendanjerwin/images/vmware-fusion-1/sizes/m.png&quot; title=&quot;VMware Fusion&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>The Dangers of Operator Overloading</title>
+    <link href="http://brendanjerwin.com/blog/2009/11/16/the-dangers-of-operator-overloading/"/>
+    <updated>2009-11-16T00:00:00-05:00</updated>
+    <id>http://brendanjerwin.com/blog/2009/11/16/the-dangers-of-operator-overloading</id>
+    <content type="html">&lt;p&gt;It lets things like this happen (one thread, not a broken debugger):&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/posts/operator_overloading.png&quot; title=&quot;What?&quot; alt=&quot;What?&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;This might help prevent you from bending the spoon:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://msdn.microsoft.com/en-us/library/ms173147(VS.80).aspx&quot; title=&quot;C# Programming Guide&quot;&gt;Guidelines for Overloading Equals() and Operator ==&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>Consolidating My Identity</title>
+    <link href="http://brendanjerwin.com/blog/2009/05/16/consolidating-my-identity/"/>
+    <updated>2009-05-16T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2009/05/16/consolidating-my-identity</id>
+    <content type="html">&lt;p&gt;I like &lt;a href=&quot;http://openid.net/what/&quot;&gt;OpenID&lt;/a&gt; and have wanted to use it in my day-to-day internet usage. Up until recently I was attempting to use my &lt;code&gt;@gmail.com&lt;/code&gt; account but now I have something even better.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;@gmail.com&lt;/code&gt; account was OK, but Google&amp;#8217;s choice of login &lt;span class=&quot;caps&quot;&gt;URI&lt;/span&gt; is weird and impossible to remember. Most OpenID services, &lt;a href=&quot;http://www.myopenid.com&quot;&gt;myOpenID&lt;/a&gt; for instance, give you a &lt;span class=&quot;caps&quot;&gt;URI&lt;/span&gt; in the pattern of &amp;#8220;username.myopenid.com&amp;#8221; to log in with. Easy to remember and, since most login forms let you forgo the &lt;code&gt;https://&lt;/code&gt; part it&amp;#8217;s pretty natural to log in.&lt;/p&gt;
+&lt;p&gt;I took it one better though, &lt;em&gt;my&lt;/em&gt; login &lt;span class=&quot;caps&quot;&gt;URI&lt;/span&gt; is &lt;code&gt;brendanjerwin.github.com&lt;/code&gt;. Now, GitHub is not an OpenID provider, but I&amp;#8217;m still able to do this via a neat feature called &amp;#8220;delegation.&amp;#8221;&lt;/p&gt;
+&lt;p&gt;Read this: &lt;a href=&quot;http://www.intertwingly.net/blog/2007/01/03/OpenID-for-non-SuperUsers&quot;&gt;OpenID for non-SuperUsers&lt;/a&gt;. I followed the instructions under &amp;#8220;Claim Your Blog&amp;#8221; and added this to my &lt;code&gt;default.html&lt;/code&gt; template:&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/112846.js&quot;&gt;&lt;/script&gt;&lt;em&gt;Note:&lt;/em&gt; You do need an account at a real OpenID provider for this to work since it is simply delegation. I use &lt;a href=&quot;http://www.myopenid.com&quot;&gt;myOpenID&lt;/a&gt; as you have probably surmised&amp;#8230;</content>
+  </entry>
+  
+  <entry>
+    <title>This could be my new favorite thing</title>
+    <link href="http://brendanjerwin.com/blog/2009/05/15/this-could-be-my-new-favorite-thing/"/>
+    <updated>2009-05-15T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2009/05/15/this-could-be-my-new-favorite-thing</id>
+    <content type="html">&lt;p&gt;I was just watching &lt;a href=&quot;http://twitter.com/robconery&quot;&gt;Rob Conery&amp;#8217;s&lt;/a&gt; &lt;a href=&quot;http://blog.wekeroad.com/mvc-storefront/kona-3/&quot;&gt;screencast&lt;/a&gt; on &lt;span class=&quot;caps&quot;&gt;BDD&lt;/span&gt; and he showed me a tool that I think might just be my new favorite thing: &lt;a href=&quot;http://github.com/machine/machine.specifications/tree/master&quot;&gt;MSpec/machine.specifications&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It&amp;#8217;s a really cool new &lt;span class=&quot;caps&quot;&gt;BDD&lt;/span&gt; style executable specification framework which is heavily inspired by RSpec and uses some really neat c# syntax tricks. Not only does it offer a great specification &lt;span class=&quot;caps&quot;&gt;DSL&lt;/span&gt; in code, but it, like RSpec, outputs a document that &lt;em&gt;is&lt;/em&gt; the specifications document.&lt;/p&gt;
+&lt;p&gt;Here is a sample snagged out of one of the example projects:&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/112567.js&quot;&gt;&lt;/script&gt;&lt;p&gt;In addition, it has integration with all sorts of great tools. Resharper for instance: it provides a test runner plugin for Resharper 4.1 and 4.5. Here&amp;#8217;s a quick screenshot:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#8217;http://www.quicksnapper.com/brendanjerwin/image/untitled&#8217; alt=&#8217;View the image at QuickSnapper.com&#8217;&gt;&lt;img src=&#8217;http://www.quicksnapper.com/files/8929/9437621074A0E3F4962241_m.png&#8217; title=&#8217;Hosted by QuickSnapper.com&#8217; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;And here it is in the code editor window:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#8217;http://www.quicksnapper.com/brendanjerwin/image/untitled-0000&#8217; alt=&#8217;View the image at QuickSnapper.com&#8217;&gt;&lt;img src=&#8217;http://www.quicksnapper.com/files/8929/378109014A0E3FAF36ADD_m.png&#8217; title=&#8217;Hosted by QuickSnapper.com&#8217; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It also provides integration with TeamCity, outputting the specifications documentation, with current pass/fail/not-implemented results right there in the specifications.&lt;/p&gt;
+&lt;p&gt;Go check it out! Watch the screencast and gaze in wonderment!&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Helpful links:&lt;/p&gt;
+- &lt;a href=&quot;http://codebetter.com/blogs/aaron.jensen/archive/2008/10/19/getting-resharper-and-vs-to-play-nice-with-mspec.aspx&quot;&gt;Getting Resharper to play nice with the crazy syntax tricks.&lt;/a&gt;
+- &lt;a href=&quot;http://github.com/machine/machine.specifications/tree/0db4d72c93fdc4f5775d9b1eb6239b64a76ad562/Source&quot;&gt;The Machine.Specifications project site on GitHub&lt;/a&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>Campfire, Now Included</title>
+    <link href="http://brendanjerwin.com/blog/2009/04/30/campfire-now/"/>
+    <updated>2009-04-30T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2009/04/30/campfire-now</id>
+    <content type="html">&lt;p&gt;Just a little post to mention that I&amp;#8217;ve added a &lt;a href=&quot;http://www.campfirenow.com/&quot;&gt;Campfire&lt;/a&gt; chat room to my site. Now you can drop in for a quick conversation to ask questions about the drivel I post! It&amp;#8217;s down at the bottom of each page, along with the subscription buttons:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#8217;http://www.quicksnapper.com/brendanjerwin/image/campfire-now-included-0000&#8217; alt=&#8217;View the image at QuickSnapper.com&#8217;&gt;&lt;img src=&#8217;http://www.quicksnapper.com/files/8929/66203606749FA04B8925BA_m.png&#8217; title=&#8217;Hosted by QuickSnapper.com&#8217; /&gt;&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>Quick &amp; Easy Cucumber Integration in Visual Studio</title>
+    <link href="http://brendanjerwin.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio/"/>
+    <updated>2009-04-07T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio</id>
+    <content type="html">&lt;p&gt;&lt;em&gt;&lt;span class=&quot;caps&quot;&gt;UPDATED&lt;/span&gt;: A coworker did this much better. Look here: &lt;a href=&quot;http://ckooken.blogspot.com/2009/08/cucumber-debugging-in-visual-studio.html&quot;&gt;Cucumber Debugging in Visual Studio with Ruby in Steel&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
+&lt;em&gt;Edit (4/21/2009): Updated the &amp;#8220;Scenario&amp;#8221; mode to use line number instead of selected text.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;First, if you haven&amp;#8217;t heard of &lt;a href=&quot;http://cukes.info&quot;&gt;Cucumber&lt;/a&gt; then go read about it.&lt;/p&gt;
+&lt;p&gt;Done? Good. Now I&amp;#8217;m gonna show you a quick a easy way to integrate it into your Visual Studio:&lt;/p&gt;
+&lt;p&gt;Add two External Tools configured like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/All.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/Scenario.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;To help you out a bit, here are the &amp;#8220;Arguments&amp;#8221; entries:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;strong&gt;All:&lt;/strong&gt; &lt;code&gt;&#8211;guess -r $(ProjectDir)\features $(ItemPath)&lt;/code&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Scenario:&lt;/strong&gt; &lt;code&gt;&#8211;guess -r $(ProjectDir)\features $(ItemPath):$(CurLine)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These require that you have a &amp;#8220;Features Project&amp;#8221; setup something like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/Features_Project.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;To use these commands select either a directory or &lt;code&gt;.feature&lt;/code&gt; file and execute the &amp;#8220;Cucumber (All)&amp;#8221; command. Or, highlight a given scenario in the editor and use the &amp;#8220;Cucumber (Scenario)&amp;#8221; command.&lt;/p&gt;</content>
+  </entry>
+  
+  <entry>
+    <title>C# Generics using Anonymous Types</title>
+    <link href="http://brendanjerwin.com/blog/2009/03/19/anonymous-generics/"/>
+    <updated>2009-03-19T00:00:00-04:00</updated>
+    <id>http://brendanjerwin.com/blog/2009/03/19/anonymous-generics</id>
+    <content type="html">&lt;p&gt;&lt;strong&gt;&lt;span class=&quot;caps&quot;&gt;EDIT&lt;/span&gt;:&lt;/strong&gt; &lt;em&gt;After some discussion it was decided that the static factory class example is much clearer. So I&amp;#8217;ve rearranged things to promote it over the static factory method in the generic type method.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I was trying to find a better way to send multiple models to my views in an &lt;span class=&quot;caps&quot;&gt;ASP&lt;/span&gt; &lt;span class=&quot;caps&quot;&gt;MVC&lt;/span&gt; project and discovered a pretty neat trick. It didn&amp;#8217;t solve my &lt;span class=&quot;caps&quot;&gt;MVC&lt;/span&gt; problem but I still think it&amp;#8217;s pretty cool.&lt;/p&gt;
+&lt;p&gt;Using a technique that seems to be called &lt;a href=&quot;http://tomasp.net/articles/cannot-return-anonymous-type-from-method.aspx&quot;&gt;casting by example&lt;/a&gt; and a static factory method, it is possible to instantiate a generic class using an anonymous type. The resulting instance, due to the magic of type inference, has full type safety and intellisense.&lt;/p&gt;
+&lt;p&gt;The syntax for creating an instance is reminiscent of using the new &amp;#8220;initializer&amp;#8221; syntax: &lt;code&gt;var foo = MyClass.Build(new {Name=&quot;This is a Name&quot;, Count=1});&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Here is the entire thing:&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/81609.js&quot;&gt;&lt;/script&gt;&lt;p&gt;Another way to do this, but with messier syntax, is to simply have the factory method in the generic type itself. This requires, though, that you provide &lt;em&gt;some&lt;/em&gt; type to complete the generic just to get to the factory method. The type used to complete the generic to access the factory method is actually meaningless, so I use &lt;code&gt;int&lt;/code&gt; just to keep it short.&lt;/p&gt;
+&lt;script src=&quot;http://gist.github.com/81598.js&quot;&gt;&lt;/script&gt;</content>
+  </entry>
+  
+</feed>
