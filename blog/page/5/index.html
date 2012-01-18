@@ -9,7 +9,7 @@
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="I just released a little wrapper around the uNHAddins Inflector called Inflector Extension.It provides a convenient Inflect() extension method on s...">
+  <meta name="description" content="In an ASP.NET MVC2 app I&#8217;m working on I wanted to add some helpers to my views for concepts like Flash (a la Rails, not Adobe).The code in my...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -28,7 +28,7 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <link rel="openid.server" href="https://www.myopenid.com/server/">
 <link rel="openid.delegate" href="https://brendanjerwin.myopenid.com/">
 
@@ -36,7 +36,7 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <img class="right" src="http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.jpg">
+  <img class="left" src="/images/logo.png">
   <h1><a href="/">Brendan Erwin</a></h1>
   
 </hgroup>
@@ -63,6 +63,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/06/a-nice-way-to-provide-view-helpers-for-site-infrastructure/">A Nice Way to Provide View Helpers for Site Infrastructure</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-03-06T00:00:00-05:00" pubdate  data-updated="true" >Mar 6<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In an <span class="caps">ASP</span>.<span class="caps">NET</span> MVC2 app I&#8217;m working on I wanted to add some helpers to my views for concepts like <code>Flash</code> (a la Rails, not Adobe).</p>
+<p>The code in my view bases was getting out of hand and had a lot of duplication so I restructured it. I thought it was kind of interesting, so here it is:</p>
+<p>You can clone this gist with this clone <span class="caps">URL</span>: <code>git://gist.github.com/300398.git</code><br />
+<script src="http://gist.github.com/300398.js"></script></p></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -140,45 +176,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/02/09/how-i-structure-tests/">How I Structure Tests</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2010-02-09T00:00:00-05:00" pubdate  data-updated="true" >Feb 9<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>This came up at work today, and it seems worth posting.</p>
-<p>The way I&#8217;ve settled on organizing my tests/specs: first, I create general category folders for major architectural chunks of my application. In this example I have <code>Domain</code> and <code>Persistance</code>.</p>
-<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion/sizes/m.png" title="VMware Fusion" /></a></p>
-<p>Inside those, if needed, I&#8217;ll add further folders to mimic the namespace of the code under test. In this case I have a fairly shallow domain (although it&#8217;ll get deaper with time and I&#8217;ll restructure the tests).</p>
-<p>Finally, for each module I&#8217;m specifying, I&#8217;ll create a folder and for each method or scenario (if the the behavior is bigger than a single method) I&#8217;ll create a fixture. Inside each fixture I&#8217;ll list the various specifications.</p>
-<p>This all results in a nice organization when running tests and makes it easy to add new specifications as needed.</p>
-<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion-1" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion-1/sizes/m.png" title="VMware Fusion" /></a></p></div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -196,6 +193,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/17/tdd-bdd-jasmine-and-mocha/">TDD/BDD Jasmine to Mocha</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2011/09/28/upgraded-to-octopress/">Upgraded to Octopress</a>
@@ -223,10 +224,6 @@
     
       <li class="post">
         <a href="/blog/2010/09/07/nubular-gets-a-new-contributor/">Nubular (nu) Project Gets a New Contributor</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/09/06/nu-specification/">Nubular (Nu) Command - Specification</a>
       </li>
     
   </ul>
@@ -285,7 +282,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - Brendan Erwin -
+  Copyright &copy; 2012 - Brendan Erwin -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

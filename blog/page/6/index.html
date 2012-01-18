@@ -9,7 +9,7 @@
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="It lets things like this happen (one thread, not a broken debugger):This might help prevent you from bending the spoon:Guidelines for Overloading E...">
+  <meta name="description" content="This came up at work today, and it seems worth posting.The way I&#8217;ve settled on organizing my tests/specs: first, I create general category fo...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -28,7 +28,7 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <link rel="openid.server" href="https://www.myopenid.com/server/">
 <link rel="openid.delegate" href="https://brendanjerwin.myopenid.com/">
 
@@ -36,7 +36,7 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <img class="right" src="http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.jpg">
+  <img class="left" src="/images/logo.png">
   <h1><a href="/">Brendan Erwin</a></h1>
   
 </hgroup>
@@ -63,6 +63,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/02/09/how-i-structure-tests/">How I Structure Tests</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2010-02-09T00:00:00-05:00" pubdate  data-updated="true" >Feb 9<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This came up at work today, and it seems worth posting.</p>
+<p>The way I&#8217;ve settled on organizing my tests/specs: first, I create general category folders for major architectural chunks of my application. In this example I have <code>Domain</code> and <code>Persistance</code>.</p>
+<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion/sizes/m.png" title="VMware Fusion" /></a></p>
+<p>Inside those, if needed, I&#8217;ll add further folders to mimic the namespace of the code under test. In this case I have a fairly shallow domain (although it&#8217;ll get deaper with time and I&#8217;ll restructure the tests).</p>
+<p>Finally, for each module I&#8217;m specifying, I&#8217;ll create a folder and for each method or scenario (if the the behavior is bigger than a single method) I&#8217;ll create a fixture. Inside each fixture I&#8217;ll list the various specifications.</p>
+<p>This all results in a nice organization when running tests and makes it easy to add new specifications as needed.</p>
+<p><a href="http://emberapp.com/brendanjerwin/images/vmware-fusion-1" title="View Image VMware Fusion at Ember.com"><img src="http://emberapp.com/brendanjerwin/images/vmware-fusion-1/sizes/m.png" title="VMware Fusion" /></a></p></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -137,51 +176,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/15/this-could-be-my-new-favorite-thing/">This Could Be My New Favorite Thing</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-05-15T00:00:00-04:00" pubdate  data-updated="true" >May 15<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was just watching <a href="http://twitter.com/robconery">Rob Conery&#8217;s</a> <a href="http://blog.wekeroad.com/mvc-storefront/kona-3/">screencast</a> on <span class="caps">BDD</span> and he showed me a tool that I think might just be my new favorite thing: <a href="http://github.com/machine/machine.specifications/tree/master">MSpec/machine.specifications</a>.</p>
-<p>It&#8217;s a really cool new <span class="caps">BDD</span> style executable specification framework which is heavily inspired by RSpec and uses some really neat c# syntax tricks. Not only does it offer a great specification <span class="caps">DSL</span> in code, but it, like RSpec, outputs a document that <em>is</em> the specifications document.</p>
-<p>Here is a sample snagged out of one of the example projects:</p>
-<script src="http://gist.github.com/112567.js"></script><p>In addition, it has integration with all sorts of great tools. Resharper for instance: it provides a test runner plugin for Resharper 4.1 and 4.5. Here&#8217;s a quick screenshot:</p>
-<p><a href='http://www.quicksnapper.com/brendanjerwin/image/untitled' alt='View the image at QuickSnapper.com'><img src='http://www.quicksnapper.com/files/8929/9437621074A0E3F4962241_m.png' title='Hosted by QuickSnapper.com' /></a></p>
-<p>And here it is in the code editor window:</p>
-<p><a href='http://www.quicksnapper.com/brendanjerwin/image/untitled-0000' alt='View the image at QuickSnapper.com'><img src='http://www.quicksnapper.com/files/8929/378109014A0E3FAF36ADD_m.png' title='Hosted by QuickSnapper.com' /></a></p>
-<p>It also provides integration with TeamCity, outputting the specifications documentation, with current pass/fail/not-implemented results right there in the specifications.</p>
-<p>Go check it out! Watch the screencast and gaze in wonderment!</p>
-<hr />
-<p>Helpful links:</p>
-- <a href="http://codebetter.com/blogs/aaron.jensen/archive/2008/10/19/getting-resharper-and-vs-to-play-nice-with-mspec.aspx">Getting Resharper to play nice with the crazy syntax tricks.</a>
-- <a href="http://github.com/machine/machine.specifications/tree/0db4d72c93fdc4f5775d9b1eb6239b64a76ad562/Source">The Machine.Specifications project site on GitHub</a></div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -199,6 +193,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/17/tdd-bdd-jasmine-and-mocha/">TDD/BDD Jasmine to Mocha</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2011/09/28/upgraded-to-octopress/">Upgraded to Octopress</a>
@@ -226,10 +224,6 @@
     
       <li class="post">
         <a href="/blog/2010/09/07/nubular-gets-a-new-contributor/">Nubular (nu) Project Gets a New Contributor</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/09/06/nu-specification/">Nubular (Nu) Command - Specification</a>
       </li>
     
   </ul>
@@ -288,7 +282,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - Brendan Erwin -
+  Copyright &copy; 2012 - Brendan Erwin -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

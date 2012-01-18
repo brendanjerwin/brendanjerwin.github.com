@@ -4,13 +4,53 @@
   <title>Brendan Erwin</title>
   <link href="http://brendanjerwin.com/atom.xml" rel="self"/>
   <link href="http://brendanjerwin.com/"/>
-  <updated>2011-09-28T23:47:23-04:00</updated>
+  <updated>2012-01-18T00:34:11-05:00</updated>
   <id>http://brendanjerwin.com/</id>
   <author>
     <name>Brendan Erwin</name>
     
   </author>
 
+  
+  <entry>
+    <title>TDD/BDD Jasmine to Mocha</title>
+    <link href="http://brendanjerwin.com/blog/2012/01/17/tdd-bdd-jasmine-and-mocha/"/>
+    <updated>2012-01-17T00:00:00-05:00</updated>
+    <id>http://brendanjerwin.com/blog/2012/01/17/tdd-bdd-jasmine-and-mocha</id>
+    <content type="html">&lt;p&gt;I just got done giving a presentation at the &lt;a href=&quot;http://www.meetup.com/AtlantaJavaScript/events/43837192&quot;&gt;Atlanta JavaScript Meetup Group&lt;/a&gt; describing our journey with TDD/BDD in JavaScript using Jasmine and some other tools.&lt;!&#8211;more&#8211;&gt; I learned a lot:&lt;/p&gt;
+
+&lt;p&gt;First, it was a lot of fun getting to talk about this stuff, so thanks a lot folks!&lt;/p&gt;
+
+&lt;p&gt;Second, I think I&amp;#8217;m going to include a new section at the beginning of all my presentations where I give a bit of background on all the bits and pieces I&amp;#8217;ll be using. For instance, a quick overview of CoffeeScript and Vim: what they are, where you can get them, etc. That way I can get that stuff out of the way and hopefully allow people to see my intended content.&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#8217;has-pullquote&#8217; data-pullquote=&#8217;I need to focus my message at the beginning and get my goal out there so my audience knows where we are going.&#8217;&gt;
+Third, I need to focus my message at the beginning and get my goal out there so my audience knows where we are going. &amp;#8220;Hand waving&amp;#8221; at the beginning isn&amp;#8217;t very engaging&amp;#8230;
+&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2&gt;The Content&lt;/h2&gt;
+
+&lt;p&gt;The presentation was about TDD/BDD in JavaScript. I tried to give a bit of background covering the basic patterns used to write specs and how the Jasmine style is awesome because it can do them all.&lt;/p&gt;
+
+&lt;p&gt;Then I went on to describe some of the real-world problems with building big, complex systems. Modularity and the related tools and problems.&lt;/p&gt;
+
+&lt;p&gt;Finally, I discussed our journey &amp;#8220;through&amp;#8221; Jasmine to Mocha (and some related tools) due to the problems we had with Jasmine and our Jasmine tool stack.&lt;/p&gt;
+
+&lt;p&gt;Here is my presentation:&lt;/p&gt;
+
+&lt;iframe frameborder=&#8217;0&#8217; style=&#8217;width:460px;height:375px;&#8217; src=&#8217;http://public.iwork.com/embed/?d=TDD_to_BDD_to_Context-Specification.key&amp;a=p70069974&amp;h=768&amp;w=1024&amp;sw=458&#8217;&gt;&lt;/iframe&gt;
+
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://public.iwork.com/document/?d=TDD_to_BDD_to_Context-Specification.key&amp;amp;a=p70069974&quot;&gt;Enjoy!&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Next&lt;/h2&gt;
+
+&lt;p&gt;I think I&amp;#8217;d like to do a presentation digging deep into CoffeeScript. The suggestion came up that a JavaScript vs. CoffeeScript showdown might be a fun format&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Also, I&amp;#8217;d like to talk a bit about the OEmbed standard. It has a lot of potential but I think it needs more mind-share.&lt;/p&gt;
+</content>
+  </entry>
   
   <entry>
     <title>Upgraded to Octopress</title>
@@ -427,28 +467,6 @@ So the only compatible version of Windsor and FNH is Windsor 2.0.0.0 + NH 2.1.2.
     <id>http://brendanjerwin.com/blog/2009/04/30/campfire-now</id>
     <content type="html">&lt;p&gt;Just a little post to mention that I&amp;#8217;ve added a &lt;a href=&quot;http://www.campfirenow.com/&quot;&gt;Campfire&lt;/a&gt; chat room to my site. Now you can drop in for a quick conversation to ask questions about the drivel I post! It&amp;#8217;s down at the bottom of each page, along with the subscription buttons:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#8217;http://www.quicksnapper.com/brendanjerwin/image/campfire-now-included-0000&#8217; alt=&#8217;View the image at QuickSnapper.com&#8217;&gt;&lt;img src=&#8217;http://www.quicksnapper.com/files/8929/66203606749FA04B8925BA_m.png&#8217; title=&#8217;Hosted by QuickSnapper.com&#8217; /&gt;&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  
-  <entry>
-    <title>Quick &amp; Easy Cucumber Integration in Visual Studio</title>
-    <link href="http://brendanjerwin.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio/"/>
-    <updated>2009-04-07T00:00:00-04:00</updated>
-    <id>http://brendanjerwin.com/blog/2009/04/07/quick-and-easy-cucumber-integration-in-visual-studio</id>
-    <content type="html">&lt;p&gt;&lt;em&gt;&lt;span class=&quot;caps&quot;&gt;UPDATED&lt;/span&gt;: A coworker did this much better. Look here: &lt;a href=&quot;http://ckooken.blogspot.com/2009/08/cucumber-debugging-in-visual-studio.html&quot;&gt;Cucumber Debugging in Visual Studio with Ruby in Steel&lt;/a&gt;&lt;/em&gt;&lt;br /&gt;
-&lt;em&gt;Edit (4/21/2009): Updated the &amp;#8220;Scenario&amp;#8221; mode to use line number instead of selected text.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;First, if you haven&amp;#8217;t heard of &lt;a href=&quot;http://cukes.info&quot;&gt;Cucumber&lt;/a&gt; then go read about it.&lt;/p&gt;
-&lt;p&gt;Done? Good. Now I&amp;#8217;m gonna show you a quick a easy way to integrate it into your Visual Studio:&lt;/p&gt;
-&lt;p&gt;Add two External Tools configured like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/All.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/Scenario.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;To help you out a bit, here are the &amp;#8220;Arguments&amp;#8221; entries:&lt;/p&gt;
-&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;All:&lt;/strong&gt; &lt;code&gt;&#8211;guess -r $(ProjectDir)\features $(ItemPath)&lt;/code&gt;&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Scenario:&lt;/strong&gt; &lt;code&gt;&#8211;guess -r $(ProjectDir)\features $(ItemPath):$(CurLine)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;These require that you have a &amp;#8220;Features Project&amp;#8221; setup something like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://brendanjerwin.com/images/cucumber-integration/Features_Project.png&quot; title=&quot;Title&quot; alt=&quot;Title&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;To use these commands select either a directory or &lt;code&gt;.feature&lt;/code&gt; file and execute the &amp;#8220;Cucumber (All)&amp;#8221; command. Or, highlight a given scenario in the editor and use the &amp;#8220;Cucumber (Scenario)&amp;#8221; command.&lt;/p&gt;</content>
   </entry>
   
 </feed>

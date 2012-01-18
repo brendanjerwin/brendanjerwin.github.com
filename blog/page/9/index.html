@@ -9,7 +9,7 @@
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="We are using Cucumber Features to document requirement stories for a project I&#8217;m working on. The project itself is written in c# but we are u...">
+  <meta name="description" content="In reviewing some code at work I noticed a lot of cases in which the developer was reading associations from the model and loading them into ViewDa...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -28,7 +28,7 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <link rel="openid.server" href="https://www.myopenid.com/server/">
 <link rel="openid.delegate" href="https://brendanjerwin.myopenid.com/">
 
@@ -36,7 +36,7 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <img class="right" src="http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.jpg">
+  <img class="left" src="/images/logo.png">
   <h1><a href="/">Brendan Erwin</a></h1>
   
 </hgroup>
@@ -63,6 +63,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/02/mvc-guidance-avoid-loading-associations-into-viewdata/">MVC Guidance - Avoid Loading Associations Into ViewData</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-02T00:00:00-05:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In reviewing some code at work I noticed a lot of cases in which the developer was reading associations from the model and loading them into ViewData. This resulted in code littered with &#8220;<a href="http://en.wikipedia.org/wiki/Magic_string_(programming)#a">magic strings</a>&#8221;. Luckily there is a better approach.<br />
+<script src="http://gist.github.com/72872.js"></script></p>
+<p><em>Where did this approach come from?</em></p>
+<p>I did some looking around and discovered that the <a href="http://www.codeplex.com/MVCContrib/Wiki/View.aspx?title=Grid&amp;referringTitle=Documentation">MvcContrib documentation</a> and some existing <span class="caps">HOW</span>-TO posts use the &#8220;magic string&#8221; approach. I suppose they were written earlier in the evolution of the <span class="caps">ASP</span>.<span class="caps">NET</span> <span class="caps">MVC</span> framework.</p></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -163,6 +199,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2012/01/17/tdd-bdd-jasmine-and-mocha/">TDD/BDD Jasmine to Mocha</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2011/09/28/upgraded-to-octopress/">Upgraded to Octopress</a>
       </li>
     
@@ -188,10 +228,6 @@
     
       <li class="post">
         <a href="/blog/2010/09/07/nubular-gets-a-new-contributor/">Nubular (nu) Project Gets a New Contributor</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/09/06/nu-specification/">Nubular (Nu) Command - Specification</a>
       </li>
     
   </ul>
@@ -250,7 +286,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - Brendan Erwin -
+  Copyright &copy; 2012 - Brendan Erwin -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

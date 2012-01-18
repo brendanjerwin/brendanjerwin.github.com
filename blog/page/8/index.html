@@ -9,7 +9,7 @@
   <meta name="author" content="Brendan Erwin">
 
   
-  <meta name="description" content="I&#8217;m using both Fluent NHibernate and NHibernate Validator in a project at work and discovered that getting the two to work together was a lit...">
+  <meta name="description" content="EDIT: After some discussion it was decided that the static factory class example is much clearer. So I&#8217;ve rearranged things to promote it ove...">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -28,7 +28,7 @@
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
+<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 <link rel="openid.server" href="https://www.myopenid.com/server/">
 <link rel="openid.delegate" href="https://brendanjerwin.myopenid.com/">
 
@@ -36,7 +36,7 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <img class="right" src="http://en.gravatar.com/userimage/3394211/ec20c9c27a627f8c189a37e336c3ec42.jpg">
+  <img class="left" src="/images/logo.png">
   <h1><a href="/">Brendan Erwin</a></h1>
   
 </hgroup>
@@ -63,6 +63,45 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/03/19/anonymous-generics/">C# Generics Using Anonymous Types</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+  
+
+
+
+<time datetime="2009-03-19T00:00:00-04:00" pubdate  data-updated="true" >Mar 19<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><strong><span class="caps">EDIT</span>:</strong> <em>After some discussion it was decided that the static factory class example is much clearer. So I&#8217;ve rearranged things to promote it over the static factory method in the generic type method.</em></p>
+<p>I was trying to find a better way to send multiple models to my views in an <span class="caps">ASP</span> <span class="caps">MVC</span> project and discovered a pretty neat trick. It didn&#8217;t solve my <span class="caps">MVC</span> problem but I still think it&#8217;s pretty cool.</p>
+<p>Using a technique that seems to be called <a href="http://tomasp.net/articles/cannot-return-anonymous-type-from-method.aspx">casting by example</a> and a static factory method, it is possible to instantiate a generic class using an anonymous type. The resulting instance, due to the magic of type inference, has full type safety and intellisense.</p>
+<p>The syntax for creating an instance is reminiscent of using the new &#8220;initializer&#8221; syntax: <code>var foo = MyClass.Build(new {Name="This is a Name", Count=1});</code></p>
+<p>Here is the entire thing:</p>
+<script src="http://gist.github.com/81609.js"></script><p>Another way to do this, but with messier syntax, is to simply have the factory method in the generic type itself. This requires, though, that you provide <em>some</em> type to complete the generic just to get to the factory method. The type used to complete the generic to access the factory method is actually meaningless, so I use <code>int</code> just to keep it short.</p>
+<script src="http://gist.github.com/81598.js"></script></div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -152,42 +191,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/03/02/mvc-guidance-avoid-loading-associations-into-viewdata/">MVC Guidance - Avoid Loading Associations Into ViewData</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-  
-
-
-
-<time datetime="2009-03-02T00:00:00-05:00" pubdate  data-updated="true" >Mar 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In reviewing some code at work I noticed a lot of cases in which the developer was reading associations from the model and loading them into ViewData. This resulted in code littered with &#8220;<a href="http://en.wikipedia.org/wiki/Magic_string_(programming)#a">magic strings</a>&#8221;. Luckily there is a better approach.<br />
-<script src="http://gist.github.com/72872.js"></script></p>
-<p><em>Where did this approach come from?</em></p>
-<p>I did some looking around and discovered that the <a href="http://www.codeplex.com/MVCContrib/Wiki/View.aspx?title=Grid&amp;referringTitle=Documentation">MvcContrib documentation</a> and some existing <span class="caps">HOW</span>-TO posts use the &#8220;magic string&#8221; approach. I suppose they were written earlier in the evolution of the <span class="caps">ASP</span>.<span class="caps">NET</span> <span class="caps">MVC</span> framework.</p></div>
-  
-  
-
-
-    </article>
-  
   <nav class="pagination">
     <div>
       
@@ -205,6 +208,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/01/17/tdd-bdd-jasmine-and-mocha/">TDD/BDD Jasmine to Mocha</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2011/09/28/upgraded-to-octopress/">Upgraded to Octopress</a>
@@ -232,10 +239,6 @@
     
       <li class="post">
         <a href="/blog/2010/09/07/nubular-gets-a-new-contributor/">Nubular (nu) Project Gets a New Contributor</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2010/09/06/nu-specification/">Nubular (Nu) Command - Specification</a>
       </li>
     
   </ul>
@@ -294,7 +297,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2011 - Brendan Erwin -
+  Copyright &copy; 2012 - Brendan Erwin -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
