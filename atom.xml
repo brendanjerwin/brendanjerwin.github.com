@@ -4,7 +4,7 @@
   <title>Brendan Erwin</title>
   <link href="http://brendanjerwin.com/atom.xml" rel="self"/>
   <link href="http://brendanjerwin.com/"/>
-  <updated>2012-01-18T07:36:40-05:00</updated>
+  <updated>2012-01-18T07:37:50-05:00</updated>
   <id>http://brendanjerwin.com/</id>
   <author>
     <name>Brendan Erwin</name>
@@ -48,11 +48,13 @@ Third, I need to focus my message at the beginning and get my goal out there so 
 
 &lt;p&gt;There was some interest in some of the tools we used as well:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;* [LiveReload](http://livereload.com/) to automatically reload the browser when the specs changed.
-* [Guard](https://github.com/guard/guard), [Guard-CoffeeScript](https://github.com/guard/guard-coffeescript), and [Guard-LiveReload](https://github.com/guard/guard-livereload) to watch the filesystem for changes.
-* MacVim, the &quot;Split-browser&quot; branch, by [alloy](https://github.com/alloy/macvim).
-* [Janus](https://github.com/carlhuda/janus), the Vim &quot;Distribution&quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://livereload.com/&quot;&gt;LiveReload&lt;/a&gt; to automatically reload the browser when the specs changed.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/guard/guard&quot;&gt;Guard&lt;/a&gt;, &lt;a href=&quot;https://github.com/guard/guard-coffeescript&quot;&gt;Guard-CoffeeScript&lt;/a&gt;, and &lt;a href=&quot;https://github.com/guard/guard-livereload&quot;&gt;Guard-LiveReload&lt;/a&gt; to watch the filesystem for changes.&lt;/li&gt;
+&lt;li&gt;MacVim, the &amp;#8220;Split-browser&amp;#8221; branch, by &lt;a href=&quot;https://github.com/alloy/macvim&quot;&gt;alloy&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/carlhuda/janus&quot;&gt;Janus&lt;/a&gt;, the Vim &amp;#8220;Distribution&amp;#8221;&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;h2&gt;Next&lt;/h2&gt;
 
